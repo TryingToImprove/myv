@@ -34,3 +34,6 @@ C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.Sig
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.Owin.xml
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Google.GData.Client.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Google.GData.Extensions.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Google.GData.YouTube.dll

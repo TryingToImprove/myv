@@ -20,9 +20,6 @@
 
     App.vent.listenTo(App, "video:request", function (id) {
         if (App.state == STATES.VIEWER) {
-
-            alert("TEST");
-
             var args = Array.prototype.slice.call(arguments, 0);
             args.splice(0, 0, "video:change");
 

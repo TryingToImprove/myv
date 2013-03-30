@@ -10,10 +10,9 @@
         ui: {
             player: "#player"
         },
-        initialize: function() {
+        initialize: function () {
             this.listenTo(App, "video:change", function (videoId) {
-                alert("TEST");
-                this.ui.player.attr("src", "http://www.youtube.com/embed/" + videoId);
+                this.ui.player.attr("src", "http://www.youtube.com/embed/" + videoId + "?autoplay=1");
             });
         }
     });
