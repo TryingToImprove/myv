@@ -4,6 +4,7 @@
     var View = Backbone.Marionette.ItemView.extend({
         template: Template,
         tagName: "div",
+        className: "viewer",
         events: {
             "click [data-videoId]": "sendVideoRequest"
         },

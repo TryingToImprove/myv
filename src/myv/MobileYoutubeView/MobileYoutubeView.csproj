@@ -166,6 +166,9 @@
     <Content Include="Scripts\Views\ViewerView.js" />
     <Content Include="Scripts\Views\HomeView.js" />
     <Content Include="Scripts\Views\RemoteControllerView.js" />
+    <Content Include="Stylesheets\Main.css">
+      <DependentUpon>Main.scss</DependentUpon>
+    </Content>
     <Content Include="Templates\ViewerView.html" />
     <Content Include="Templates\RemoteControllerView.html" />
     <Content Include="Templates\HomeView.html" />
@@ -187,6 +190,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Stylesheets\Main.scss">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

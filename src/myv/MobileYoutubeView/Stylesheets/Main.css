@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  height: 100%; }
+
+#main-content {
+  height: 100%; }
+
+.viewer {
+  height: 100%; }
+  .viewer iframe {
+    height: 100%;
+    width: 100%; }
+
