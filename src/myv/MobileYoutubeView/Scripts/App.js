@@ -18,19 +18,25 @@
         });
     });
 
-    App.vent.listenTo(App, "video:change", function (id) {
+    App.vent.listenTo(App, "video:request", function (id) {
         if (App.state == STATES.VIEWER) {
-            alert(id);
+
+            var args = Array.prototype.slice.call(arguments, 0);
+            args.splice(0, 0, "video:change");
+
+            App.vent.trigger.apply(App, args);
         }
     });
 
     App.vent.on("views:show:viewer", function () {
         App.state = STATES.VIEWER;
-        //throw new Error("Not implanted")
+
+        require(["Views/ViewerView"], function (ViewerView) {
+            App.mainRegion.show(new ViewerView());
+        });
     });
 
     App.vent.on("views:show:remoteController", function () {
-
         App.state = STATES.REMOTE_CONTROLLER;
 
         require(["Views/RemoteControllerView"], function (RemoteControllerView) {
@@ -39,16 +45,16 @@
     });
 
     App.addInitializer(function () {
-        this.hub.server.hello();
+        
         this.vent.trigger("views:show:home");
     });
-
     App.hub = $.connection.mainHub;
 
     App.hub.client.publish = function () {
-        console.log("Publish trigger: ", arguments[0]);
+        console.log("trigger:" + arguments[0]);
         App.vent.trigger.apply(App, arguments);
     };
+
     
     // configuration, setting up regions, etc ...
 

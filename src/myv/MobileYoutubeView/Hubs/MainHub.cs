@@ -8,9 +8,9 @@ namespace MobileYoutubeView.Hubs
 {
     public class MainHub : Hub
     {
-        public void Hello()
+        public void SendVideoRequest(string videoId)
         {
-            Clients.All.Publish("video:change", 123);
+            Clients.Others.Publish("video:request", videoId);
         }
     }
 }
