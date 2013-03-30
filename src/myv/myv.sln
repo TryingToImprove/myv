@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileYouTubeView.Web", "MobileYouTubeView.Web\MobileYouTubeView.Web.csproj", "{9EEBC5B5-F71F-49B2-BA14-5B3332B5E125}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileYoutubeView", "MobileYoutubeView\MobileYoutubeView.csproj", "{0DFAF2F5-E250-4DD9-B2F9-E8C37BC8EE7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9EEBC5B5-F71F-49B2-BA14-5B3332B5E125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EEBC5B5-F71F-49B2-BA14-5B3332B5E125}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EEBC5B5-F71F-49B2-BA14-5B3332B5E125}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EEBC5B5-F71F-49B2-BA14-5B3332B5E125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFAF2F5-E250-4DD9-B2F9-E8C37BC8EE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFAF2F5-E250-4DD9-B2F9-E8C37BC8EE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFAF2F5-E250-4DD9-B2F9-E8C37BC8EE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFAF2F5-E250-4DD9-B2F9-E8C37BC8EE7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
