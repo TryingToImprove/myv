@@ -47,9 +47,10 @@
     });
 
     App.addInitializer(function () {
-
         this.vent.trigger("views:show:home");
     });
+
+
     App.hub = $.connection.mainHub;
 
     App.hub.client.publish = function () {
