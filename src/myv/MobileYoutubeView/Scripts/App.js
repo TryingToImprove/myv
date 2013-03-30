@@ -3,17 +3,24 @@
     // set up the app instance
     var App = new Marionette.Application();
 
-    App.vent.on("views:show:home", function () {
-        var app = this;
-        require(["Views/HomeView"], function (HomeView) {
-            app.mainRegion.show(new HomeView);
-        })
+    App.addRegions({
+        mainRegion: "#main-content"
     });
 
-    App.addRegions({
-        "mainRegion": {
-            el: $("body")
-        }
+    App.vent.on("views:show:home", function () {
+        require(["Views/HomeView"], function (HomeView) {
+            App.mainRegion.show(new HomeView());
+        });
+    });
+
+    App.vent.on("views:show:viwer", function () {
+        throw new Error("Not implanted")
+    });
+
+    App.vent.on("views:show:remoteController", function () {
+        require(["Views/RemoteControllerView"], function (RemoteControllerView) {
+            App.mainRegion.show(new RemoteControllerView());
+        });
     });
 
     App.addInitializer(function () {

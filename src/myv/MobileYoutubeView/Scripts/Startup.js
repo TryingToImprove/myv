@@ -27,7 +27,8 @@ require.config({
         "backbone.babysitter": "Vendor/Backbone/Backbone.babysitter",
         Handlebars: "Vendor/handlebars-1.0.rc.1",
         $: "Vendor/jquery.mobile-1.2.0",
-       text: "Vendor/requirejs-plugins/text"
+        Templates: "../Templates",
+        text: "Vendor/requirejs-plugins/text"
     }  
 });
 
