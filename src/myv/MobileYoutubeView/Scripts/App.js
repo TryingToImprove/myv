@@ -21,6 +21,8 @@
     App.vent.listenTo(App, "video:request", function (id) {
         if (App.state == STATES.VIEWER) {
 
+            alert("TEST");
+
             var args = Array.prototype.slice.call(arguments, 0);
             args.splice(0, 0, "video:change");
 
@@ -45,7 +47,7 @@
     });
 
     App.addInitializer(function () {
-        
+
         this.vent.trigger("views:show:home");
     });
     App.hub = $.connection.mainHub;
@@ -55,7 +57,7 @@
         App.vent.trigger.apply(App, arguments);
     };
 
-    
+
     // configuration, setting up regions, etc ...
 
     // export the app from this module
