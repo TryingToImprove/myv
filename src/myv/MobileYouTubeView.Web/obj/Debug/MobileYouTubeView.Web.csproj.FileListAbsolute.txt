@@ -3,3 +3,4 @@ C:\Users\HTML24\Projekter\myv\src\myv\MobileYouTubeView.Web\bin\MobileYouTubeVie
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYouTubeView.Web\obj\Debug\MobileYouTubeView.Web.csprojResolveAssemblyReference.cache
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYouTubeView.Web\obj\Debug\MobileYouTubeView.Web.dll
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYouTubeView.Web\obj\Debug\MobileYouTubeView.Web.pdb
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYouTubeView.Web\bin\Index.html
