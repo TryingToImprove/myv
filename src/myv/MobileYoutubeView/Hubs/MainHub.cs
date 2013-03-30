@@ -10,7 +10,7 @@ namespace MobileYoutubeView.Hubs
     {
         public void Hello()
         {
-            Clients.All.hello();
+            Clients.All.Publish("video:change", 123);
         }
     }
 }

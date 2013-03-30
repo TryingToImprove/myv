@@ -35,10 +35,15 @@ require.config({
     }
 });
 
-define(["App", "Handlebars", "/signalr/hubs"], function (App, Handlebars, hubs) {
+define(["$", "App", "Handlebars", "/signalr/hubs"], function ($, App, Handlebars, hubs) {
     "use strict";
+    $(function () {
+        $.connection.hub.start({
+            waitForPageLoad: false
+        }).done(function () {
+            window._app = App;
 
-    window._app = App;
-
-    App.start();
+            App.start();
+        });
+    });
 });
