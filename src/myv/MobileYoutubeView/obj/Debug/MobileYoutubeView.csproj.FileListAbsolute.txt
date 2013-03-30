@@ -25,3 +25,12 @@ C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\System.Web.WebPages.
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.csprojResolveAssemblyReference.cache
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.dll
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.pdb
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.Owin.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Owin.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.Owin.xml
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.Owin.Host.SystemWeb.xml
