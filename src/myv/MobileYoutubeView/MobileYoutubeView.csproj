@@ -119,6 +119,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App.js" />
+    <Content Include="Scripts\Main.js" />
+    <Content Include="Scripts\Startup.js" />
+    <Content Include="Scripts\Vendor\Backbone\backbone.babysitter.js" />
+    <Content Include="Scripts\Vendor\Backbone\Backbone.js" />
+    <Content Include="Scripts\Vendor\Backbone\backbone.marionette.js" />
+    <Content Include="Scripts\Vendor\Backbone\backbone.wreqr.js" />
+    <Content Include="Scripts\Vendor\EventManager.js" />
+    <Content Include="Scripts\Vendor\handlebars-1.0.rc.1.js" />
+    <Content Include="Scripts\Vendor\jquery.mobile-1.2.0.js" />
+    <Content Include="Scripts\Vendor\require.js" />
+    <Content Include="Scripts\Vendor\requirejs-plugins\image.js" />
+    <Content Include="Scripts\Vendor\requirejs-plugins\text.js" />
+    <Content Include="Scripts\Vendor\Underscore\underscore.js" />
+    <Content Include="Scripts\Vendor\Zepto.js" />
+    <Content Include="Scripts\Views\HomeView.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -131,6 +147,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
