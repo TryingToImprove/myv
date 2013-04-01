@@ -1,4 +1,8 @@
-﻿define(["$", "underscore", "backbone", "marionette"], function ($, _, Backbone, Marionette) {
+﻿define(["$", "underscore", "backbone", "marionette", "Handlebars"], function ($, _, Backbone, Marionette, Handlebars) {
+
+    Backbone.Marionette.TemplateCache.prototype.compileTemplate = function (rawTemplate) {
+        return Handlebars.compile(rawTemplate);
+    };
 
     var STATES = {
         VIEWER: 0,

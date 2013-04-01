@@ -9,8 +9,10 @@ namespace MobileYoutubeView.Api
 {
     public class VideoEntry
     {
+        public string Description { get; set; }
         public string Title { get; set; }
         public string Id { get; set; }
+        public int Duration { get; set; }
     }
 
     public class YouTubeController : ApiController
@@ -31,7 +33,9 @@ namespace MobileYoutubeView.Api
             return videoFeed.Entries.Select(video => new VideoEntry
                 {
                     Title = video.Title,
-                    Id = video.VideoId
+                    Description = video.Description,
+                    Id = video.VideoId,
+                    Duration = int.Parse(video.Media.Duration.Seconds)
                 });
         }
     }

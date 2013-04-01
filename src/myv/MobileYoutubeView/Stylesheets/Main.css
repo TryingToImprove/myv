@@ -1,6 +1,8 @@
 html, body {
   margin: 0;
-  height: 100%; }
+  height: 100%;
+  font-family: tahoma;
+  font-size: 1em; }
 
 #main-content {
   height: 100%; }
@@ -11,8 +13,25 @@ html, body {
     height: 100%;
     width: 100%; }
 
-.txtSearch {
-  width: 100% !important;
-  margin-top: 8px !important;
-  padding: 20px 10px !important; }
+.remote-controller .search-bar {
+  background: #7d7e7d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #7d7e7d 0%, #444444 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7d7e7d), color-stop(100%, #444444));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #7d7e7d 0%, #444444 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #7d7e7d 0%, #444444 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #7d7e7d 0%, #444444 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #7d7e7d 0%, #444444 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d7e7d', endColorstr='#444444',GradientType=0 );
+  /* IE6-9 */
+  padding: 10px; }
+  .remote-controller .search-bar input[type="search"] {
+    width: 100% !important;
+    padding: 10px 10px !important; }
 

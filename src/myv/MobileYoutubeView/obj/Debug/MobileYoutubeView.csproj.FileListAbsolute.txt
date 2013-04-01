@@ -22,7 +22,6 @@ C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\System.Web.Razor.xml
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\System.Web.WebPages.xml
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\System.Web.WebPages.Deployment.xml
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\System.Web.WebPages.Razor.xml
-C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.csprojResolveAssemblyReference.cache
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.dll
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.pdb
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.AspNet.SignalR.Core.dll
@@ -37,3 +36,4 @@ C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Microsoft.Owin.Host.
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Google.GData.Client.dll
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Google.GData.Extensions.dll
 C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\bin\Google.GData.YouTube.dll
+C:\Users\HTML24\Projekter\myv\src\myv\MobileYoutubeView\obj\Debug\MobileYoutubeView.csprojResolveAssemblyReference.cache

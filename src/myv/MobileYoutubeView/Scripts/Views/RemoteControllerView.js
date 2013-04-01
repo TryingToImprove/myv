@@ -1,15 +1,22 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html"], function ($, _, Backbone, Marionette, Template) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate) {
     var App = require("App");
 
-    var View = Backbone.Marionette.ItemView.extend({
-        template: Template,
+    var ItemView = Backbone.Marionette.ItemView.extend({
+        template: ItemViewTemplate,
+        onRender: function() {
+            this.$el.attr("data-videoId", this.model.get("Id"));
+        }
+    });
+
+    var View = Backbone.Marionette.CompositeView.extend({
         tagName: "div",
+        className: "remote-controller",
+        template: Template,
+        itemView: ItemView,
+        itemViewContainer: "#videoentry-container",
         events: {
             "click [data-videoId]": "sendVideoRequest",
             "keydown #txtSearch": "search"
-        },
-        ui: {
-            "container": "#videoentry-container"
         },
         sendVideoRequest: function (e) {
             var $target = $(e.target),
@@ -19,8 +26,9 @@
         },
         search: function (e) {
             var $target = $(e.target),
-                query = $target.val(),
-                $container = this.ui.container;
+                query = $target.val();
+
+            var that = this;
 
             searchDelayer(function () {
                 require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
@@ -29,7 +37,7 @@
                     collection.fetch({
                         data: $.param({ query: query }),
                         success: function () {
-                            displayResults($container, collection)
+                            displayResults.call(that, collection)
                         }
                     });
                 });
@@ -38,16 +46,18 @@
         }
     });
 
-    var displayResults = function (container, collection) {
-        var content = "<div>"
+    var displayResults = function (collection) {
+        //var content = "<div>"
 
-        collection.each(function (videoEntry) {
-            content += "<a href='#' data-videoId='" + videoEntry.get("Id") + "'>" + videoEntry.get("Title") + "</a><br />";
-        });
+        //collection.each(function (videoEntry) {
+        //    content += "<a href='#' data-videoId='" + videoEntry.get("Id") + "'>" + videoEntry.get("Title") + "</a><br />";
+        //});
 
-        content += "</div>";
+        //content += "</div>";
 
-        container.empty().html(content);
+        //container.empty().html(content);
+        this.collection = collection;
+        this.render();
     };
 
     var searchDelayer = (function () {
