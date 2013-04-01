@@ -166,6 +166,10 @@
     <Content Include="Scripts\Views\ViewerView.js" />
     <Content Include="Scripts\Views\HomeView.js" />
     <Content Include="Scripts\Views\RemoteControllerView.js" />
+    <Content Include="Stylesheets\bootstrap-responsive.css" />
+    <Content Include="Stylesheets\bootstrap-responsive.min.css" />
+    <Content Include="Stylesheets\bootstrap.css" />
+    <Content Include="Stylesheets\bootstrap.min.css" />
     <Content Include="Stylesheets\Main.css">
       <DependentUpon>Main.scss</DependentUpon>
     </Content>
