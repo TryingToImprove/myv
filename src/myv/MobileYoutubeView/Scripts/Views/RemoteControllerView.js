@@ -11,12 +11,13 @@
         },
         onShow: function () {
             this.search.show(new SearchView());
-            this.content.show(new View());
+            this.content.show(new CollectionView());
         }
     });
 
     var ItemView = Backbone.Marionette.ItemView.extend({
         template: ItemViewTemplate,
+        tagName: "section",
         onRender: function () {
             this.$el.attr("data-videoId", this.model.get("Id"));
         }
@@ -30,9 +31,7 @@
         search: function (e) {
             var $target = $(e.target),
                 query = $target.val();
-
-            var that = this;
-
+            
             searchDelayer(function () {
                 require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
                     var collection = new VideoEntryCollection();
@@ -48,9 +47,9 @@
         }
     });
 
-    var View = Backbone.Marionette.CompositeView.extend({
+    var CollectionView = Backbone.Marionette.CompositeView.extend({
         tagName: "div",
-        className: "remote-controller",
+        className: "video-entries",
         template: Template,
         itemView: ItemView,
         events: {
@@ -64,11 +63,10 @@
             App.hub.server.sendVideoRequest(videoId);
         },
         initialize: function () {
-            var that = this;
             this.listenTo(App, "search:collection:change", function (collection) {
-                that.collection = collection;
+                this.collection = collection;
                 
-                that.render();
+                this.render();
             });
         }
     });

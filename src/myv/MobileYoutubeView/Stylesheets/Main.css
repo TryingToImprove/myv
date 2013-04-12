@@ -46,3 +46,24 @@ body {
   width: 100% !important;
   padding: 10px 10px !important;
 }
+.remote-controller .video-entries section {
+  overflow: hidden;
+  margin-top: 10px;
+}
+.remote-controller .video-entries section img {
+  float: left;
+  width: 40%;
+}
+.remote-controller .video-entries section div {
+  float: right;
+  width: 59%;
+}
+.remote-controller .video-entries section div h1 {
+  font-size: 16px;
+}
+.remote-controller .video-entries section div p {
+  margin: 10px 0;
+}
+.remote-controller .video-entries section:first-child {
+  margin-top: 0;
+}
