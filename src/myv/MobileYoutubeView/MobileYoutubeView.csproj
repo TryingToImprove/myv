@@ -167,7 +167,10 @@
     <Content Include="Scripts\Views\HomeView.js" />
     <Content Include="Scripts\Views\RemoteControllerView.js" />
     <Content Include="Stylesheets\Main.css">
-      <DependentUpon>Main.scss</DependentUpon>
+      <DependentUpon>Main.less</DependentUpon>
+    </Content>
+    <Content Include="Stylesheets\Main.min.css">
+      <DependentUpon>Main.less</DependentUpon>
     </Content>
     <Content Include="Templates\RemoteControllerView-Search.html" />
     <Content Include="Templates\RemoteControllerView-Layout.html" />
@@ -195,12 +198,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Stylesheets\Main.scss">
-      <Compile>True</Compile>
-      <Minify>True</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </Content>
+    <Content Include="Stylesheets\Main.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
