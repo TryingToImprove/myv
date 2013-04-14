@@ -12,7 +12,9 @@
             player: "#player"
         },
         initialize: function () {
-            this.listenTo(App, "video:change", function (videoId) {
+            this.listenTo(App, "video:change", function (video) {
+                var videoId = video.Id;
+
                 this.ui.player.attr("src", "http://www.youtube.com/embed/" + videoId + "?autoplay=1");
             });
         }

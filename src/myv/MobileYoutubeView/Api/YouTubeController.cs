@@ -4,39 +4,30 @@ using System.Web.Http;
 using Google.GData.Client;
 using Google.GData.YouTube;
 using Google.YouTube;
+using MobileYoutubeView.Dal;
+using MobileYoutubeView.Models;
+using StructureMap;
 
 namespace MobileYoutubeView.Api
 {
-    public class VideoEntry
-    {
-        public string Description { get; set; }
-        public string Title { get; set; }
-        public string Id { get; set; }
-        public int Duration { get; set; }
-    }
-
     public class YouTubeController : ApiController
     {
-        private const string DeveloperKey =
-            "AI39si571s4xf0sI3fqTG4r82UXn6KCxdKPzCZYp6wze-kFcrZrZfYNDVvorIEpCnQwTDomkwnMgIgznWLDAb7lH19gvSl7Unw";
+        private readonly YouTubeRepository _youTubeRepository;
+
+        public YouTubeController()
+            : this(ObjectFactory.GetInstance<YouTubeRepository>())
+        {
+            //USe simple ObjectFactory as a Service Locator to start with! 
+        }
+
+        public YouTubeController(YouTubeRepository youTubeRepository)
+        {
+            _youTubeRepository = youTubeRepository;
+        }
 
         public IEnumerable<VideoEntry> Get(string query)
         {
-            var settings = new YouTubeRequestSettings("Songbird", DeveloperKey);
-            var request = new YouTubeRequest(settings);
-
-            Feed<Video> videoFeed = request.Get<Video>(new YouTubeQuery(YouTubeQuery.DefaultVideoUri)
-                {
-                    Query = query
-                });
-
-            return videoFeed.Entries.Select(video => new VideoEntry
-                {
-                    Title = video.Title,
-                    Description = video.Description,
-                    Id = video.VideoId,
-                    Duration = int.Parse(video.Media.Duration.Seconds)
-                });
+            return _youTubeRepository.Search(query);
         }
     }
 }

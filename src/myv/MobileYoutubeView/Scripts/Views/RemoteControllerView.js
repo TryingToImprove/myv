@@ -24,7 +24,7 @@
                 }));
             });
 
-            this.listenTo(App, "video:request", function (videoId) {
+            this.listenTo(App, "video:request", function (video) {
                 ///Should change the content in the bottom bar
                 //TODO: Make bottom bar
             });
