@@ -41,15 +41,12 @@
         },
         initialize: function () {
             this.listenTo(App, "video:request", function (video) {
-                ///Should change the content in the bottom bar
-                //TODO: Make bottom bar
-
-                var current = this;
+                var that = this;
 
                 require(["Models/VideoEntryModel"], function (VideoEntryModel) {
-                    current.model = new VideoEntryModel(video);
+                    that.model = new VideoEntryModel(video);
 
-                    current.render();
+                    that.render();
                 });
             });
         },
