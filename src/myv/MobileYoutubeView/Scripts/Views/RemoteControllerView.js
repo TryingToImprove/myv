@@ -34,7 +34,6 @@
             "click": "sendVideoRequest"
         },
         sendVideoRequest: function (e) {
-
             var videoId = this.model.get("Id");
 
             //Send request to the server
@@ -52,8 +51,7 @@
             txtSearch: "#txtSearch"
         },
         search: function (e) {
-            var $target = this.ui.txtSearch,
-                query = $target.val();
+            var query = this.ui.txtSearch.val();
 
             App.trigger("state:loading");
 
