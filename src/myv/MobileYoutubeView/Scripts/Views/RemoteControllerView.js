@@ -53,9 +53,9 @@
         search: function (e) {
             var query = this.ui.txtSearch.val();
 
+            //We want to display loading screen here! 
             App.trigger("state:loading");
 
-            //searchDelayer(function () {
             require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
                 var collection = new VideoEntryCollection();
 
@@ -66,7 +66,6 @@
                     }
                 });
             });
-            //}, 300, this);
 
             return false;
         }
@@ -82,17 +81,6 @@
     var LoadingView = Backbone.Marionette.ItemView.extend({
         template: LoadingTemplate
     });
-
-    //A function which make sure you are finish writing before it contiunes (input, keydown)
-    var searchDelayer = (function () {
-        var timer = 0;
-        return function (callback, ms, context) {
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-                callback.call(context);
-            }, ms);
-        };
-    })();
 
     return Layout;
 });
