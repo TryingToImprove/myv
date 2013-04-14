@@ -18,9 +18,16 @@
     var ItemView = Backbone.Marionette.ItemView.extend({
         template: ItemViewTemplate,
         tagName: "section",
-        onRender: function () {
-            this.$el.attr("data-videoId", this.model.get("Id"));
-        }
+        events: {
+            "click": "sendVideoRequest"
+        },
+        sendVideoRequest: function (e) {
+
+            var videoId = this.model.get("Id");
+
+            //Send request to the server
+            App.hub.server.sendVideoRequest(videoId);
+        },
     });
 
     var SearchView = Backbone.Marionette.ItemView.extend({
@@ -31,7 +38,7 @@
         search: function (e) {
             var $target = $(e.target),
                 query = $target.val();
-            
+
             searchDelayer(function () {
                 require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
                     var collection = new VideoEntryCollection();
@@ -52,20 +59,10 @@
         className: "video-entries",
         template: Template,
         itemView: ItemView,
-        events: {
-            "click [data-videoId]": "sendVideoRequest"
-        },
-        sendVideoRequest: function (e) {
-            var $target = $(e.target),
-                videoId = $target.attr("data-videoId");
-
-            //Send request to the server
-            App.hub.server.sendVideoRequest(videoId);
-        },
         initialize: function () {
             this.listenTo(App, "search:collection:change", function (collection) {
                 this.collection = collection;
-                
+
                 this.render();
             });
         }
