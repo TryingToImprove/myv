@@ -23,12 +23,10 @@
     });
 
     App.vent.listenTo(App, "video:request", function (id) {
-        if (App.state == STATES.VIEWER) {
-            var args = Array.prototype.slice.call(arguments, 0);
-            args.splice(0, 0, "video:change");
+        var args = Array.prototype.slice.call(arguments, 0);
+        args.splice(0, 0, "video:change");
 
-            App.vent.trigger.apply(App, args);
-        }
+        App.vent.trigger.apply(App, args);
     });
 
     App.vent.on("views:show:viewer", function () {
@@ -40,7 +38,6 @@
     });
 
     App.vent.on("views:show:remoteController", function () {
-        App.state = STATES.REMOTE_CONTROLLER;
 
         require(["Views/RemoteControllerView"], function (RemoteControllerView) {
             App.mainRegion.show(new RemoteControllerView());
@@ -55,7 +52,6 @@
     App.hub = $.connection.mainHub;
 
     App.hub.client.publish = function () {
-        console.log("trigger:" + arguments[0]);
         App.vent.trigger.apply(App, arguments);
     };
 

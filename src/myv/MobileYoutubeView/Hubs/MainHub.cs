@@ -10,7 +10,7 @@ namespace MobileYoutubeView.Hubs
     {
         public void SendVideoRequest(string videoId)
         {
-            Clients.Others.Publish("video:request", videoId);
+            Clients.All.Publish("video:request", videoId);
         }
     }
 }

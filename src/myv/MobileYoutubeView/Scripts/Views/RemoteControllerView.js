@@ -15,7 +15,6 @@
         },
         initialize: function () {
             this.listenTo(App, "state:loading", function () {
-                console.log("loading")
                 this.content.show(new LoadingView());
             });
 
@@ -23,6 +22,11 @@
                 this.content.show(new CollectionView({
                     collection: collection
                 }));
+            });
+
+            this.listenTo(App, "video:request", function (videoId) {
+                ///Should change the content in the bottom bar
+                //TODO: Make bottom bar
             });
         }
     });
