@@ -178,6 +178,7 @@
     <Content Include="Stylesheets\Main.min.css">
       <DependentUpon>Main.less</DependentUpon>
     </Content>
+    <Content Include="Templates\RemoteControllerView-Bottom.html" />
     <Content Include="Templates\RemoteControllerView-Loading.html" />
     <Content Include="Templates\RemoteControllerView-Search.html" />
     <Content Include="Templates\RemoteControllerView-Layout.html" />

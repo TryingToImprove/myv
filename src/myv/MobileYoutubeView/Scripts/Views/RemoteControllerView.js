@@ -1,4 +1,4 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html", "text!Templates/RemoteControllerView-Layout.html", "text!Templates/RemoteControllerView-Search.html", "text!Templates/RemoteControllerView-Loading.html"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html", "text!Templates/RemoteControllerView-Layout.html", "text!Templates/RemoteControllerView-Search.html", "text!Templates/RemoteControllerView-Loading.html", "text!Templates/RemoteControllerView-Bottom.html"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate, BottomBarTemplate) {
     var App = require("App");
 
     var Layout = Backbone.Marionette.Layout.extend({
@@ -7,11 +7,13 @@
         className: "remote-controller",
         regions: {
             search: "#remoteController-search-area",
-            content: "#remoteController-content-area"
+            content: "#remoteController-content-area",
+            bottom: "#remoteController-bottom-area"
         },
         onShow: function () {
             this.search.show(new SearchView());
             this.content.show(new CollectionView());
+            this.bottom.show(new BottomBarView());
         },
         initialize: function () {
             this.listenTo(App, "state:loading", function () {
@@ -23,11 +25,51 @@
                     collection: collection
                 }));
             });
+        }
+    });
 
+    var BottomBarView = Backbone.Marionette.ItemView.extend({
+        template: BottomBarTemplate,
+        tagName: "aside",
+        className: "playing-container",
+        ui: {
+            content: ".content",
+            options: ".options"
+        },
+        events: {
+            "click .options > .dots": "openContent"
+        },
+        initialize: function () {
             this.listenTo(App, "video:request", function (video) {
                 ///Should change the content in the bottom bar
                 //TODO: Make bottom bar
+
+                var current = this;
+
+                require(["Models/VideoEntryModel"], function (VideoEntryModel) {
+                    current.model = new VideoEntryModel(video);
+
+                    current.render();
+                });
             });
+        },
+        isContentOpen: false,
+        openContent: function () {
+            var optionsHeight = this.ui.options.outerHeight(true),
+                contentHeight;
+
+            if (this.isContentOpen) {
+                this.ui.content.hide();
+                this.$el.height(optionsHeight + "px");
+            } else {
+                this.ui.content.show();
+
+                contentHeight = this.ui.content.outerHeight(true);
+
+                this.$el.height((optionsHeight + contentHeight) + "px");
+            }
+
+            this.isContentOpen = !this.isContentOpen;
         }
     });
 

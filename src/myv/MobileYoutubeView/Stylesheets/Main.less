@@ -6,7 +6,7 @@
 }
 
 form {
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 #main-content {
@@ -71,18 +71,37 @@ form {
         }
     }
 
-    .playing-container{
-        position:absolute;
-        left:0;
-        bottom:0;
-        width:100%;
-        background:black;
-        overflow:hidden;
+    .playing-container {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: black;
+        overflow: hidden;
+        color: #FFF;
+        overflow: hidden;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
 
-        .dots {
-            padding:5px;
-            color:#FFF;
-            float:right;
+        .options {
+            overflow: hidden;
+
+            .dots {
+                padding: 5px;
+                color: #FFF;
+                float: right;
+            }
+        }
+
+        .content {
+            display: none;
+            overflow:hidden;
+
+            h1{
+                font-size:15px;
+                margin:0;
+                line-height:15px;
+            }
         }
     }
 }
@@ -90,8 +109,8 @@ form {
 
 //LOADER
 #circularG {
-    margin:0 auto;
-    margin-top:50px;
+    margin: 0 auto;
+    margin-top: 50px;
     position: relative;
     width: 128px;
     height: 128px;

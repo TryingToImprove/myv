@@ -71,17 +71,32 @@ form {
   margin-top: 0;
 }
 .remote-controller .playing-container {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background: black;
+  color: #FFF;
+  overflow: hidden;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+.remote-controller .playing-container .options {
   overflow: hidden;
 }
-.remote-controller .playing-container .dots {
+.remote-controller .playing-container .options .dots {
   padding: 5px;
   color: #FFF;
   float: right;
+}
+.remote-controller .playing-container .content {
+  display: none;
+  overflow: hidden;
+}
+.remote-controller .playing-container .content h1 {
+  font-size: 15px;
+  margin: 0;
+  line-height: 15px;
 }
 #circularG {
   margin: 0 auto;
