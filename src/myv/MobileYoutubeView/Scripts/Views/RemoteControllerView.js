@@ -32,25 +32,31 @@
 
     var SearchView = Backbone.Marionette.ItemView.extend({
         template: SearchTemplate,
+        tagName: "form",
         events: {
-            "keyup #txtSearch": "search"
+            "submit": "search"
+        },
+        ui: {
+            txtSearch: "#txtSearch"
         },
         search: function (e) {
-            var $target = $(e.target),
+            var $target = this.ui.txtSearch,
                 query = $target.val();
 
-            searchDelayer(function () {
-                require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
-                    var collection = new VideoEntryCollection();
+            //searchDelayer(function () {
+            require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
+                var collection = new VideoEntryCollection();
 
-                    collection.fetch({
-                        data: $.param({ query: query }),
-                        success: function () {
-                            App.trigger("search:collection:change", collection);
-                        }
-                    });
+                collection.fetch({
+                    data: $.param({ query: query }),
+                    success: function () {
+                        App.trigger("search:collection:change", collection);
+                    }
                 });
-            }, 300, this);
+            });
+            //}, 300, this);
+
+            return false;
         }
     });
 
