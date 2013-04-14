@@ -1,4 +1,4 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html", "text!Templates/RemoteControllerView-Layout.html", "text!Templates/RemoteControllerView-Search.html"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html", "text!Templates/RemoteControllerView-Layout.html", "text!Templates/RemoteControllerView-Search.html", "text!Templates/RemoteControllerView-Loading.html"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate) {
     var App = require("App");
 
     var Layout = Backbone.Marionette.Layout.extend({
@@ -12,6 +12,18 @@
         onShow: function () {
             this.search.show(new SearchView());
             this.content.show(new CollectionView());
+        },
+        initialize: function () {
+            this.listenTo(App, "state:loading", function () {
+                console.log("loading")
+                this.content.show(new LoadingView());
+            });
+
+            this.listenTo(App, "search:collection:change", function (collection) {
+                this.content.show(new CollectionView({
+                    collection: collection
+                }));
+            });
         }
     });
 
@@ -43,6 +55,8 @@
             var $target = this.ui.txtSearch,
                 query = $target.val();
 
+            App.trigger("state:loading");
+
             //searchDelayer(function () {
             require(["Collections/VideoEntryCollection"], function (VideoEntryCollection) {
                 var collection = new VideoEntryCollection();
@@ -64,14 +78,11 @@
         tagName: "div",
         className: "video-entries",
         template: Template,
-        itemView: ItemView,
-        initialize: function () {
-            this.listenTo(App, "search:collection:change", function (collection) {
-                this.collection = collection;
+        itemView: ItemView
+    });
 
-                this.render();
-            });
-        }
+    var LoadingView = Backbone.Marionette.ItemView.extend({
+        template: LoadingTemplate
     });
 
     //A function which make sure you are finish writing before it contiunes (input, keydown)
