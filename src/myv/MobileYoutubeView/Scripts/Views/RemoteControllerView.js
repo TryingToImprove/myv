@@ -50,10 +50,18 @@
                 });
             });
         },
+        onRender: function() {
+            if (this.isContentOpen) {
+                this.ui.content.show();
+            }            
+        },
         isContentOpen: false,
         openContent: function () {
             var optionsHeight = this.ui.options.outerHeight(true),
                 contentHeight;
+
+            //TODO: MAKE BETTER PAUSE
+            App.hub.server.sendPauseRequest();
 
             if (this.isContentOpen) {
                 this.ui.content.hide();

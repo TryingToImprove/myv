@@ -29,5 +29,10 @@ namespace MobileYoutubeView.Hubs
 
             Clients.All.Publish("video:request", video);
         }
+
+        public void SendPauseRequest()
+        {
+            Clients.All.Publish("video:playPause");
+        }
     }
 }
