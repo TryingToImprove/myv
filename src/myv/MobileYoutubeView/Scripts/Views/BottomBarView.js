@@ -63,7 +63,9 @@
             btnPlayPause: ".playPause-btn"
         },
         events: {
-            "click .playPause-btn ": "playPause"
+            "click .playPause-btn ": "playPause",
+            "click .volume-up": "volumeUp",
+            "click .volume-down": "volumeDown"
         },
         initialize: function () {
             this.listenTo(App, "video:play", function (video) {
@@ -77,6 +79,12 @@
                     .removeClass("playing")
                     .addClass("paused");
             });
+        },
+        volumeUp: function () {
+            App.hub.server.sendVolumeUp();
+        },
+        volumeDown: function () {
+            App.hub.server.sendVolumeDown();
         },
         playPause: function (e) {
 

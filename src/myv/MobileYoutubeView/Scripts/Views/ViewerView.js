@@ -24,12 +24,12 @@
 
             this.listenTo(App, "volume:up", function () {
                 this.volume += 10;
-                this.setVolume(this.volume);
+                this.player.setVolume(this.volume);
             });
 
             this.listenTo(App, "volume:down", function () {
                 this.volume -= 10;
-                this.setVolume(this.volume);
+                this.player.setVolume(this.volume);
             });
 
             this.listenTo(App, "video:play", function () {

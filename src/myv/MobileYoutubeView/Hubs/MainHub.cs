@@ -41,12 +41,12 @@ namespace MobileYoutubeView.Hubs
             Clients.All.Publish("video:play");
         }
 
-        public void VolumeUp()
+        public void SendVolumeUp()
         {
             Clients.All.Publish("volume:up");
         }
 
-        public void VolumeDown()
+        public void SendVolumeDown()
         {
             Clients.All.Publish("volume:down");
         } 
