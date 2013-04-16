@@ -34,7 +34,8 @@
         className: "playing-container",
         ui: {
             content: ".content",
-            options: ".options"
+            options: ".options",
+            btnPlayPause: ".content .playPause-btn"
         },
         events: {
             "click .options > .dots": "openContent",
@@ -50,6 +51,16 @@
                     that.render();
                 });
             });
+
+            this.listenTo(App, "video:play", function (video) {
+                this.ui.btnPlayPause.removeClass("pause")
+                    .addClass("playing");
+            });
+            
+            this.listenTo(App, "video:pause", function (video) {
+                this.ui.btnPlayPause.removeClass("playing")
+                    .addClass("pause");
+            });
         },
         onRender: function () {
             if (this.isContentOpen) {
@@ -58,8 +69,6 @@
         },
         playPause: function (e) {
             App.hub.server.sendPauseRequest();
-
-            $(e.target).removeClass("playing").addClass("paused");
 
             e.preventDefault();
         },
