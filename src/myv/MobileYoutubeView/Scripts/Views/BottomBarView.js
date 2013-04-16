@@ -60,7 +60,7 @@
         template: PlayingTemplate,
         tagName: "aside",
         ui: {
-            btnPlayPause: ".content .playPause-btn"
+            btnPlayPause: ".playPause-btn"
         },
         events: {
             "click .playPause-btn ": "playPause"
@@ -68,14 +68,14 @@
         initialize: function () {
             this.listenTo(App, "video:play", function (video) {
                 this.ui.btnPlayPause
-                    .removeClass("pause")
+                    .removeClass("paused")
                     .addClass("playing");
             });
 
             this.listenTo(App, "video:pause", function (video) {
                 this.ui.btnPlayPause
                     .removeClass("playing")
-                    .addClass("pause");
+                    .addClass("paused");
             });
         },
         playPause: function (e) {

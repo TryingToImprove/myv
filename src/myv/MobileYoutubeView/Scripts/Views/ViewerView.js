@@ -22,6 +22,16 @@
 
             });
 
+            this.listenTo(App, "volume:up", function () {
+                this.volume += 10;
+                this.setVolume(this.volume);
+            });
+
+            this.listenTo(App, "volume:down", function () {
+                this.volume -= 10;
+                this.setVolume(this.volume);
+            });
+
             this.listenTo(App, "video:play", function () {
                 this.play();
             });
@@ -97,8 +107,8 @@
             this.player = document.getElementById("myytplayer");
             this.player.addEventListener('onStateChange', 'onYouTubePlayerStateChange');
 
-            // this.player.mute(); //MUTE THE FUCKING 
             this.player.loadVideoById(id, 0, 0);
+            this.volume = this.player.getVolume();
 
         }
     });

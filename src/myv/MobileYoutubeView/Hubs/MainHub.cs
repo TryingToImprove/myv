@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using MobileYoutubeView.Dal;
@@ -34,9 +35,20 @@ namespace MobileYoutubeView.Hubs
         {
             Clients.All.Publish("video:pause");
         }
+
         public void SendPlayRequest()
         {
             Clients.All.Publish("video:play");
         }
+
+        public void VolumeUp()
+        {
+            Clients.All.Publish("volume:up");
+        }
+
+        public void VolumeDown()
+        {
+            Clients.All.Publish("volume:down");
+        } 
     }
 }

@@ -4,6 +4,7 @@
     var View = Backbone.Marionette.ItemView.extend({
         template: Template,
         tagName: "div",
+        className: "home-view",
         ui: {
             btnViewMode: $("#btnViewMode"),
             btnRemoteMode: $("#btnRemoteMode")
