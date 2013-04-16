@@ -21,8 +21,13 @@
                 }, this));
 
             });
-            this.listenTo(App, "video:playPause", function () {
-                this.playPause();
+
+            this.listenTo(App, "video:play", function () {
+                this.play();
+            });
+
+            this.listenTo(App, "video:pause", function () {
+                this.pause();
             });
         },
         onRender: function () {
@@ -42,7 +47,7 @@
 
             window.onYouTubePlayerReady = (function (view) {
                 return function () {
-                    view.play();
+                    view.start();
                 };
             }(this));
 
@@ -76,14 +81,17 @@
                 };
             }(this));
         },
-        playPause: function () {
-            if (this.player.getPlayerState() === 1) {
-                this.player.pauseVideo();
-            } else {
+        play: function () {
+            if (this.player.getPlayerState() !== 1) {
                 this.player.playVideo();
             }
         },
-        play: function () {
+        pause: function () {
+            if (this.player.getPlayerState() === 1) {
+                this.player.pauseVideo();
+            }
+        },
+        start: function () {
             var id = this.model.get("Id");
 
             this.player = document.getElementById("myytplayer");

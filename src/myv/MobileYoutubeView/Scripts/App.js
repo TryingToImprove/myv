@@ -12,6 +12,8 @@
     // set up the app instance
     var App = new Marionette.Application();
 
+    App.isPlaying = true;
+
     App.addRegions({
         mainRegion: "#main-content"
     });
@@ -20,6 +22,14 @@
         require(["Views/HomeView"], function (HomeView) {
             App.mainRegion.show(new HomeView());
         });
+    });
+
+    App.listenTo(App, "video:play", function (video) {
+        App.isPlaying = true;
+    });
+
+    App.listenTo(App, "video:pause", function (video) {
+        App.isPlaying = false;
     });
 
     App.vent.listenTo(App, "video:request", function (id) {

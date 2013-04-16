@@ -172,6 +172,7 @@
     <Content Include="Scripts\Vendor\swfobject.js" />
     <Content Include="Scripts\Vendor\Underscore\underscore.js" />
     <Content Include="Scripts\Vendor\Zepto.js" />
+    <Content Include="Scripts\Views\BottomBarView.js" />
     <Content Include="Scripts\Views\ViewerView.js" />
     <Content Include="Scripts\Views\HomeView.js" />
     <Content Include="Scripts\Views\RemoteControllerView.js" />
@@ -181,7 +182,8 @@
     <Content Include="Stylesheets\Main.min.css">
       <DependentUpon>Main.less</DependentUpon>
     </Content>
-    <Content Include="Templates\RemoteControllerView-Bottom.html" />
+    <Content Include="Templates\BottomBar-Playing.html" />
+    <Content Include="Templates\BottomBar.html" />
     <Content Include="Templates\RemoteControllerView-Loading.html" />
     <Content Include="Templates\RemoteControllerView-Search.html" />
     <Content Include="Templates\RemoteControllerView-Layout.html" />

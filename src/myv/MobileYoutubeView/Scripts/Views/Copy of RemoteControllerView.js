@@ -1,4 +1,4 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html", "text!Templates/RemoteControllerView-Layout.html", "text!Templates/RemoteControllerView-Search.html", "text!Templates/RemoteControllerView-Loading.html", "Views/BottomBarView"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate, BottomBarView) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/RemoteControllerView.html", "text!Templates/RemoteControllerView-Item.html", "text!Templates/RemoteControllerView-Layout.html", "text!Templates/RemoteControllerView-Search.html", "text!Templates/RemoteControllerView-Loading.html", "text!Templates/RemoteControllerView-Bottom.html"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate, BottomBarTemplate) {
     var App = require("App");
 
     var Layout = Backbone.Marionette.Layout.extend({
@@ -25,6 +25,72 @@
                     collection: collection
                 }));
             });
+        }
+    });
+
+    var BottomBarView = Backbone.Marionette.ItemView.extend({
+        template: BottomBarTemplate,
+        tagName: "aside",
+        className: "playing-container",
+        ui: {
+            content: ".content",
+            options: ".options",
+            btnPlayPause: ".content .playPause-btn"
+        },
+        events: {
+            "click .options > .dots": "openContent",
+            "click .playPause-btn ": "playPause"
+        },
+        initialize: function () {
+            this.listenTo(App, "video:request", function (video) {
+                var that = this;
+
+                require(["Models/VideoEntryModel"], function (VideoEntryModel) {
+                    that.model = new VideoEntryModel(video);
+
+                    that.render();
+                });
+            });
+
+            this.listenTo(App, "video:play", function (video) {
+                this.ui.btnPlayPause.removeClass("pause")
+                    .addClass("playing");
+            });
+            
+            this.listenTo(App, "video:pause", function (video) {
+                this.ui.btnPlayPause.removeClass("playing")
+                    .addClass("pause");
+            });
+        },
+        onRender: function () {
+            if (this.isContentOpen) {
+                this.ui.content.show();
+            }
+        },
+        playPause: function (e) {
+            App.hub.server.sendPauseRequest();
+
+            e.preventDefault();
+        },
+        isContentOpen: false,
+        openContent: function () {
+            var optionsHeight = this.ui.options.outerHeight(true),
+                contentHeight;
+
+            if (this.isContentOpen) {
+                this.ui.content.hide();
+                this.$el.height(optionsHeight + "px");
+            } else {
+                this.ui.content.show();
+
+                contentHeight = this.ui.content.outerHeight(true);
+
+                this.$el.height((optionsHeight + contentHeight) + "px");
+            }
+
+            this.isContentOpen = !this.isContentOpen;
+
+            e.preventDefault();
         }
     });
 

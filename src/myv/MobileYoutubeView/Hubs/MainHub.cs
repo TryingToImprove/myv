@@ -32,7 +32,11 @@ namespace MobileYoutubeView.Hubs
 
         public void SendPauseRequest()
         {
-            Clients.All.Publish("video:playPause");
+            Clients.All.Publish("video:pause");
+        }
+        public void SendPlayRequest()
+        {
+            Clients.All.Publish("video:play");
         }
     }
 }
