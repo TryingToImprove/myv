@@ -80,16 +80,17 @@ form {
         overflow: hidden;
         color: #FFF;
         overflow: hidden;
-        -moz-transition: all 500ms ease;
-        -o-transition: all 500ms ease;
-        -webkit-transition: all 500ms ease;
-        transition: all 500ms ease;
+        -moz-transition: all 250ms ease;
+        -o-transition: all 250ms ease;
+        -webkit-transition: all 250ms ease;
+        transition: all 250ms ease;
 
         .options {
             overflow: hidden;
 
             .dots {
-                padding: 5px;
+                padding: 10px;
+                padding-bottom:5px;
                 color: #FFF;
                 float: right;
             }
@@ -98,11 +99,33 @@ form {
         .content {
             display: none;
             overflow: hidden;
+            padding:10px;
+            padding-top:0px;
 
             h1 {
-                font-size: 15px;
+                font-size: 17px;
                 margin: 0;
                 line-height: 15px;
+            }
+
+            .about {
+                float:left;
+                margin-left:15px;
+            }
+
+            .playPause-btn {
+                float:left;
+                width: 48px;
+                height: 48px;
+                display:inline-block
+            }
+
+            .playing {
+                background-image: url("../Images/pause-btn.png");
+            }
+
+            .paused {
+                background-image: url("../Images/play-btn.png");
             }
         }
     }

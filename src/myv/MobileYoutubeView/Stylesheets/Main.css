@@ -78,27 +78,46 @@ form {
   background: black;
   color: #FFF;
   overflow: hidden;
-  -moz-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
+  -moz-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
 }
 .remote-controller .playing-container .options {
   overflow: hidden;
 }
 .remote-controller .playing-container .options .dots {
-  padding: 5px;
+  padding: 10px;
+  padding-bottom: 5px;
   color: #FFF;
   float: right;
 }
 .remote-controller .playing-container .content {
   display: none;
   overflow: hidden;
+  padding: 10px;
+  padding-top: 0px;
 }
 .remote-controller .playing-container .content h1 {
-  font-size: 15px;
+  font-size: 17px;
   margin: 0;
   line-height: 15px;
+}
+.remote-controller .playing-container .content .about {
+  float: left;
+  margin-left: 15px;
+}
+.remote-controller .playing-container .content .playPause-btn {
+  float: left;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+.remote-controller .playing-container .content .playing {
+  background-image: url("../Images/pause-btn.png");
+}
+.remote-controller .playing-container .content .paused {
+  background-image: url("../Images/play-btn.png");
 }
 #circularG {
   margin: 0 auto;

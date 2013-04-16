@@ -37,7 +37,8 @@
             options: ".options"
         },
         events: {
-            "click .options > .dots": "openContent"
+            "click .options > .dots": "openContent",
+            "click .playPause-btn ": "playPause"
         },
         initialize: function () {
             this.listenTo(App, "video:request", function (video) {
@@ -55,13 +56,15 @@
                 this.ui.content.show();
             }            
         },
+        playPause: function (e) {
+            App.hub.server.sendPauseRequest();
+
+            $(e.target).removeClass("playing").addClass("paused");
+        },
         isContentOpen: false,
         openContent: function () {
             var optionsHeight = this.ui.options.outerHeight(true),
                 contentHeight;
-
-            //TODO: MAKE BETTER PAUSE
-            App.hub.server.sendPauseRequest();
 
             if (this.isContentOpen) {
                 this.ui.content.hide();
