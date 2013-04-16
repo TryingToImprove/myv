@@ -51,15 +51,17 @@
                 });
             });
         },
-        onRender: function() {
+        onRender: function () {
             if (this.isContentOpen) {
                 this.ui.content.show();
-            }            
+            }
         },
         playPause: function (e) {
             App.hub.server.sendPauseRequest();
 
             $(e.target).removeClass("playing").addClass("paused");
+
+            e.preventDefault();
         },
         isContentOpen: false,
         openContent: function () {
@@ -78,6 +80,8 @@
             }
 
             this.isContentOpen = !this.isContentOpen;
+
+            e.preventDefault();
         }
     });
 
