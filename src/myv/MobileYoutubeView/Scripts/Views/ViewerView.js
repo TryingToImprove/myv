@@ -22,14 +22,8 @@
 
             });
 
-            this.listenTo(App, "volume:up", function () {
-                this.volume += 10;
-                this.player.setVolume(this.volume);
-            });
-
-            this.listenTo(App, "volume:down", function () {
-                this.volume -= 10;
-                this.player.setVolume(this.volume);
+            this.listenTo(App, "volume:changed", function (volume) {
+                this.player.setVolume(volume);
             });
 
             this.listenTo(App, "video:play", function () {
@@ -108,8 +102,6 @@
             this.player.addEventListener('onStateChange', 'onYouTubePlayerStateChange');
 
             this.player.loadVideoById(id, 0, 0);
-            this.volume = this.player.getVolume();
-
         }
     });
 

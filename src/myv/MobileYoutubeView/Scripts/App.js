@@ -32,6 +32,26 @@
         App.isPlaying = false;
     });
 
+    App.listenTo(App, "volume:up", function () {
+        if (App.volume <= 90) {
+            App.volume += 10;
+        } else if (App.volume > 90 && App.volume < 100) {
+            App.volume += 100;
+        }
+
+        App.vent.trigger("volume:changed", App.volume);
+    });
+
+    App.listenTo(App, "volume:down", function () {
+        if (App.volume >= 10) {
+            App.volume -= 10;
+        } else if (App.volume > 0 && App.volume < 10) {
+            App.volume -= 0;
+        }
+
+        App.vent.trigger("volume:changed", App.volume);
+    });
+
     App.vent.listenTo(App, "video:request", function (id) {
         var args = Array.prototype.slice.call(arguments, 0);
         args.splice(0, 0, "video:change");
