@@ -47,7 +47,7 @@
             });
 
             this.listenTo(App, "volume:changed", function (volume) {
-                this.player.setVolume(volume);
+                this.changeVolume(volume);
                 
                 this.parent.notification.show(new NotificationView({
                     model: new NotificationModel({
@@ -63,6 +63,9 @@
             this.listenTo(App, "video:pause", function () {
                 this.pause();
             });
+        },
+        changeVolume: function(volume) {
+            this.player.setVolume(volume);
         },
         onRender: function () {
             this.embedSWF();
@@ -81,6 +84,9 @@
             window.onYouTubePlayerReady = (function (view) {
                 return function () {
                     view.start();
+                    
+                    //Set the volume again
+                    this.changeVolume(App.volume);
                 };
             }(this));
 
