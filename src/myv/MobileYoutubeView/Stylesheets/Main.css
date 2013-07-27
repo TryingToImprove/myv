@@ -148,12 +148,13 @@ form {
 .remote-controller .playing-container .content h1 {
   font-size: 17px;
   margin: 0;
-  line-height: 15px;
+  line-height: 21px;
   margin-bottom: 6px;
 }
 .remote-controller .playing-container .content .about {
   float: left;
   margin-left: 15px;
+  width: calc(37%);
 }
 .remote-controller .playing-container .content .playPause-btn {
   float: left;
