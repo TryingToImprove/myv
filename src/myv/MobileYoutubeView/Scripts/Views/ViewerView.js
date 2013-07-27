@@ -23,7 +23,6 @@
             });
 
             this.listenTo(App, "volume:changed", function (volume) {
-                console.log(volume)
                 this.player.setVolume(volume);
             });
 
