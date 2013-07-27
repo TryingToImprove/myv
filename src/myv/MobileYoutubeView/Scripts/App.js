@@ -31,7 +31,7 @@
     App.listenTo(App, "video:pause", function (video) {
         App.isPlaying = false;
     });
-
+    
     App.listenTo(App, "volume:up", function () {
         if (App.volume <= 90) {
             App.volume += 10;

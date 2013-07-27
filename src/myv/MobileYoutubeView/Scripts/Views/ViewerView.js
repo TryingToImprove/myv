@@ -1,7 +1,22 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/ViewerView.html"], function ($, _, Backbone, Marionette, Template) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/ViewerLayout.html", "text!Templates/ViewerView.html", "text!Templates/NotificationView.html", "Models/NotificationModel"], function ($, _, Backbone, Marionette, LayoutTemplate, Template, NotificationViewTemplate, NotificationModel) {
     var App = require("App");
 
-    var View = Backbone.Marionette.ItemView.extend({
+    var Layout = Backbone.Marionette.Layout.extend({
+        template: LayoutTemplate,
+        tagName: "div",
+        regions: {
+            screen: "#video-screen",
+            notification: "#notification"
+        },
+        onShow: function () {
+            var screenView = new ScreenView();
+            screenView.parent = this,
+            this.screen.show(screenView);
+        }
+    });
+
+
+    var ScreenView = Backbone.Marionette.ItemView.extend({
         template: Template,
         tagName: "div",
         className: "viewer",
@@ -17,6 +32,15 @@
 
                 require(["Models/VideoEntryModel"], $.proxy(function (VideoEntryModel) {
                     this.model = new VideoEntryModel(video);
+                    
+                    //Display a notification of what is being played
+                    this.parent.notification.show(new NotificationView({
+                        model: new NotificationModel({
+                            Message: "Now playing: " + this.model.get("Title")
+                        }),
+                        displayLength: 6000
+                    }));
+
                     this.render();
                 }, this));
 
@@ -24,6 +48,12 @@
 
             this.listenTo(App, "volume:changed", function (volume) {
                 this.player.setVolume(volume);
+                
+                this.parent.notification.show(new NotificationView({
+                    model: new NotificationModel({
+                        Message: "Volume: " + volume
+                    })
+                }));
             });
 
             this.listenTo(App, "video:play", function () {
@@ -104,5 +134,26 @@
         }
     });
 
-    return View;
+    var NotificationView = Backbone.Marionette.ItemView.extend({
+        template: NotificationViewTemplate,
+        tagName: "div",
+        className: "notification",
+        displayLength: 1500,
+        initialize: function (options) {
+            options = options || {};
+
+            if (options.displayLength) {
+                this.displayLength = options.displayLength;
+            }
+        },
+        onShow: function () {
+            this.$el.fadeIn();
+
+            setTimeout($.proxy(function() {
+                this.$el.fadeOut();
+            },this), this.displayLength);
+        }
+    });
+
+    return Layout;
 });

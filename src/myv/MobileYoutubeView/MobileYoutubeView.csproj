@@ -165,6 +165,7 @@
     </Content>
     <Content Include="Scripts\App.js" />
     <Content Include="Scripts\Collections\VideoEntryCollection.js" />
+    <Content Include="Scripts\Models\NotificationModel.js" />
     <Content Include="Scripts\Models\VideoEntryModel.js" />
     <Content Include="Scripts\Vendor\jquery.signalR-1.0.1.js" />
     <Content Include="Scripts\Main.js" />
@@ -194,6 +195,8 @@
     </Content>
     <Content Include="Templates\BottomBar-Playing.html" />
     <Content Include="Templates\BottomBar.html" />
+    <Content Include="Templates\ViewerLayout.html" />
+    <Content Include="Templates\NotificationView.html" />
     <Content Include="Templates\RemoteControllerView-Loading.html" />
     <Content Include="Templates\RemoteControllerView-Search.html" />
     <Content Include="Templates\RemoteControllerView-Layout.html" />
