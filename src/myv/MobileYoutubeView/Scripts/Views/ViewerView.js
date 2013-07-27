@@ -23,6 +23,7 @@
             });
 
             this.listenTo(App, "volume:changed", function (volume) {
+                console.log(volume)
                 this.player.setVolume(volume);
             });
 
@@ -36,7 +37,6 @@
         },
         onRender: function () {
             this.embedSWF();
-            console.log("embed");
         },
         embedSWF: function () {
             var params = {

@@ -36,20 +36,20 @@
         if (App.volume <= 90) {
             App.volume += 10;
         } else if (App.volume > 90 && App.volume < 100) {
-            App.volume += 100;
+            App.volume = 100;
         }
 
-        App.vent.trigger("volume:changed", App.volume);
+        App.vent.trigger.apply(App, ["volume:changed", App.volume]);
     });
 
     App.listenTo(App, "volume:down", function () {
         if (App.volume >= 10) {
             App.volume -= 10;
         } else if (App.volume > 0 && App.volume < 10) {
-            App.volume -= 0;
+            App.volume = 0;
         }
 
-        App.vent.trigger("volume:changed", App.volume);
+        App.vent.trigger.apply(App, ["volume:changed", App.volume]);
     });
 
     App.vent.listenTo(App, "video:request", function (id) {
@@ -78,7 +78,11 @@
         this.vent.trigger("views:show:home");
     });
 
-
+    App.addInitializer(function() {
+        //We want the app to have 100 volume from init
+        this.volume = 100;
+    });
+    
     App.hub = $.connection.mainHub;
 
     App.hub.client.publish = function () {
