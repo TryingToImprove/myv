@@ -36,28 +36,34 @@ namespace MobileYoutubeView.Hubs
             //TODO: Find a better naming convention
             string name = System.Net.Dns.GetHostName();
 
+            //Create the screen
             Screen screen = _screenFactory.CreateNew(Context.ConnectionId, name);
 
             //Add the screen to unique group
             Groups.Add(Context.ConnectionId, screen.GroupName);
 
+            //Add the screen to the connected screns
             ConnectedScreens.Add(screen);
 
+            //Call the viewer event
             Clients.Caller.Publish("views:show:viewer", screen);
         }
 
         public void JoinScreen(string screenId)
         {
+            //Find the screen the caller want to join
             var screen = ConnectedScreens.Find(x => x.Id.ToString().Equals(screenId));
 
             //Add the screen to unique group
             Groups.Add(Context.ConnectionId, screen.GroupName);
 
+            //Call the viewer event
             Clients.Caller.Publish("views:show:viewer", screen);
         }
 
         public void RequestScreens(string eventToTrigger)
         {
+            //Send the connected screens to the caller
             Clients.Caller.Publish(eventToTrigger, ConnectedScreens);
         }
 
@@ -74,6 +80,7 @@ namespace MobileYoutubeView.Hubs
                     ConnectedAt = DateTime.Now
                 };
 
+            //Add the remote controller to a signalR group
             Groups.Add(Context.ConnectionId, remoteController.ScreenGroupName);
 
             //Publish
@@ -82,6 +89,7 @@ namespace MobileYoutubeView.Hubs
 
         public void SendVideoRequest(string videoId, RemoteController remoteController)
         {
+            //Load the video from YouTube with the needed information
             var video = _youTubeRepository.GetById(videoId);
 
             //Notify the screen group
@@ -114,14 +122,18 @@ namespace MobileYoutubeView.Hubs
 
         public override Task OnDisconnected()
         {
+            //Get all screens where the disconnected caller is associated with
             var screensWhereConntectionIsAssociated = ConnectedScreens.Where(x => x.Connected.Contains(Context.ConnectionId));
 
             foreach (var screen in screensWhereConntectionIsAssociated)
             {
+                //Remove the disconnected caller from the list of connected callers
                 screen.Connected.RemoveAll(x => x.Equals(Context.ConnectionId));
 
+                //If there is no connected callers to the screen then remove it from the list of connected screens
                 if (screen.Connected.Count == 0)
                 {
+                    //Remove
                     ConnectedScreens.Remove(screen);
                 }
             }
