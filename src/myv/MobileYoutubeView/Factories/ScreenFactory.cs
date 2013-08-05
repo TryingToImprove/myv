@@ -8,13 +8,15 @@ namespace MobileYoutubeView.Factories
 {
     public class ScreenFactory
     {
-        public Screen CreateNew(string name)
+        public Screen CreateNew(string connectionId, string name)
         {
             var screen = new Screen()
                 {
                     Id = Guid.NewGuid(),
                     Started = DateTime.Now
                 };
+
+            screen.Connected.Add(connectionId);
 
             return screen;
         }

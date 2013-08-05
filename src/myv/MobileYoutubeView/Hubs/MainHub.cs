@@ -36,8 +36,7 @@ namespace MobileYoutubeView.Hubs
             //TODO: Find a better naming convention
             string name = System.Net.Dns.GetHostName();
 
-            Screen screen = _screenFactory.CreateNew(name);
-            screen.Caller = Clients.Caller;
+            Screen screen = _screenFactory.CreateNew(Context.ConnectionId, name);
 
             //Add the screen to unique group
             Groups.Add(Context.ConnectionId, screen.GroupName);
@@ -48,9 +47,9 @@ namespace MobileYoutubeView.Hubs
         }
 
         public void JoinScreen(string screenId)
-        {   
+        {
             var screen = ConnectedScreens.Find(x => x.Id.ToString().Equals(screenId));
-            
+
             //Add the screen to unique group
             Groups.Add(Context.ConnectionId, screen.GroupName);
 
@@ -75,7 +74,7 @@ namespace MobileYoutubeView.Hubs
                     ConnectedAt = DateTime.Now
                 };
 
-            Groups.Add(Context.ConnectionId, remoteController.ScreenGroupName); 
+            Groups.Add(Context.ConnectionId, remoteController.ScreenGroupName);
 
             //Publish
             Clients.Caller.Publish("views:show:remoteController", remoteController, screen);
@@ -111,6 +110,23 @@ namespace MobileYoutubeView.Hubs
         {
             //Notify the screen group
             Clients.Group(remoteController.Screen.GroupName).Publish("volume:down");
+        }
+
+        public override Task OnDisconnected()
+        {
+            var screensWhereConntectionIsAssociated = ConnectedScreens.Where(x => x.Connected.Contains(Context.ConnectionId));
+
+            foreach (var screen in screensWhereConntectionIsAssociated)
+            {
+                screen.Connected.RemoveAll(x => x.Equals(Context.ConnectionId));
+
+                if (screen.Connected.Count == 0)
+                {
+                    ConnectedScreens.Remove(screen);
+                }
+            }
+
+            return null;
         }
     }
 }
