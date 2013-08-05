@@ -31,7 +31,7 @@
     App.listenTo(App, "video:pause", function (video) {
         App.isPlaying = false;
     });
-    
+
     App.listenTo(App, "volume:up", function () {
         if (App.volume <= 90) {
             App.volume += 10;
@@ -59,17 +59,56 @@
         App.vent.trigger.apply(App, args);
     });
 
-    App.vent.on("views:show:viewer", function () {
+    App.vent.listenTo(App, "views:show:viewer", function (screen) {
         App.state = STATES.VIEWER;
 
         require(["Views/ViewerView"], function (ViewerView) {
+            console.log("test");
             App.mainRegion.show(new ViewerView());
         });
     });
 
-    App.vent.on("views:show:remoteController", function () {
+    App.vent.listenTo(App, "remoteController:choose", function (screenId) {
+        App.hub.server.connectRemoteController(screenId);
+    });
+    
+    App.vent.listenTo(App, "screen:choose", function (screenId) {
+        App.hub.server.joinScreen(screenId);
+    });
 
-        require(["Views/RemoteControllerView"], function (RemoteControllerView) {
+    App.vent.listenTo(App, "views:show:selectScreenView", function (screens) {
+        require(["Views/SelectScreenView", "Models/ScreenModel", "Collections/ScreenCollection"], function (SelectScreenView, ScreenModel, ScreenCollection) {
+            var screenModels = [],
+                screenCollection;
+
+            screens.forEach(function (currentScreen) {
+                screenModels.push(new ScreenModel(currentScreen));
+            });
+
+            screenCollection = new ScreenCollection(screenModels);
+            App.mainRegion.show(new SelectScreenView({ collection: screenCollection }));
+        });
+    });
+
+    App.vent.listenTo(App, "views:show:chooseScreenView", function (screens) {
+        require(["Views/ChooseScreenView", "Models/ScreenModel", "Collections/ScreenCollection"], function (ChooseScreenView, ScreenModel, ScreenCollection) {
+            var screenModels = [],
+                screenCollection;
+
+            screens.forEach(function (currentScreen) {
+                screenModels.push(new ScreenModel(currentScreen));
+            });
+            
+            screenCollection = new ScreenCollection(screenModels);
+            App.mainRegion.show(new ChooseScreenView({ collection: screenCollection }));
+        });
+    });
+
+    App.vent.listenTo(App, "views:show:remoteController", function (remoteController, screen) {
+        require(["Views/RemoteControllerView", "Models/RemoteControllerModel"], function (RemoteControllerView, RemoteControllerModel) {
+
+            App.model = new RemoteControllerModel(remoteController);
+
             App.mainRegion.show(new RemoteControllerView());
         });
     });
@@ -78,14 +117,15 @@
         this.vent.trigger("views:show:home");
     });
 
-    App.addInitializer(function() {
+    App.addInitializer(function () {
         //We want the app to have 100 volume from init
         this.volume = 100;
     });
-    
+
     App.hub = $.connection.mainHub;
 
     App.hub.client.publish = function () {
+        console.log(arguments)
         App.vent.trigger.apply(App, arguments);
     };
 

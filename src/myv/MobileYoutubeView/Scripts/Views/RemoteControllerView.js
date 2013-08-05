@@ -38,7 +38,7 @@
             var videoId = this.model.get("Id");
 
             //Send request to the server
-            App.hub.server.sendVideoRequest(videoId);
+            App.hub.server.sendVideoRequest(videoId, App.model.toJSON());
         },
     });
 

@@ -138,11 +138,14 @@
     <Compile Include="Api\YouTubeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Dal\YouTubeRepository.cs" />
+    <Compile Include="Factories\ScreenFactory.cs" />
     <Compile Include="Factories\VideoEntryFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\MainHub.cs" />
+    <Compile Include="Models\RemoteController.cs" />
+    <Compile Include="Models\Screen.cs" />
     <Compile Include="Models\VideoEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -164,7 +167,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\App.js" />
+    <Content Include="Scripts\Collections\ScreenCollection.js" />
     <Content Include="Scripts\Collections\VideoEntryCollection.js" />
+    <Content Include="Scripts\Models\RemoteControllerModel.js" />
+    <Content Include="Scripts\Models\ScreenModel.js" />
     <Content Include="Scripts\Models\NotificationModel.js" />
     <Content Include="Scripts\Models\VideoEntryModel.js" />
     <Content Include="Scripts\Vendor\jquery.signalR-1.0.1.js" />
@@ -184,6 +190,8 @@
     <Content Include="Scripts\Vendor\Underscore\underscore.js" />
     <Content Include="Scripts\Vendor\Zepto.js" />
     <Content Include="Scripts\Views\BottomBarView.js" />
+    <Content Include="Scripts\Views\ChooseScreenView.js" />
+    <Content Include="Scripts\Views\SelectScreenView.js" />
     <Content Include="Scripts\Views\ViewerView.js" />
     <Content Include="Scripts\Views\HomeView.js" />
     <Content Include="Scripts\Views\RemoteControllerView.js" />
@@ -195,6 +203,9 @@
     </Content>
     <Content Include="Templates\BottomBar-Playing.html" />
     <Content Include="Templates\BottomBar.html" />
+    <Content Include="Templates\ChooseScreenCollectionView.html" />
+    <Content Include="Templates\ChooseScreenItemView.html" />
+    <Content Include="Templates\SelectScreenCollectionView.html" />
     <Content Include="Templates\ViewerLayout.html" />
     <Content Include="Templates\NotificationView.html" />
     <Content Include="Templates\RemoteControllerView-Loading.html" />

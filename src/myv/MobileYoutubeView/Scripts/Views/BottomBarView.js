@@ -81,10 +81,10 @@
             });
         },
         volumeUp: function () {
-            App.hub.server.sendVolumeUp();
+            App.hub.server.sendVolumeUp(App.model.toJSON());
         },
         volumeDown: function () {
-            App.hub.server.sendVolumeDown();
+            App.hub.server.sendVolumeDown(App.model.toJSON());
         },
         playPause: function (e) {
 
@@ -93,9 +93,9 @@
                 e.preventDefault();
                 return false;
             } else if (App.isPlaying === true) {
-                App.hub.server.sendPauseRequest();
+                App.hub.server.sendPauseRequest(App.model.toJSON());
             } else if(App.isPlaying === false) {
-                App.hub.server.sendPlayRequest();
+                App.hub.server.sendPlayRequest(App.model.toJSON());
             }
 
             App.isPlaying = null;

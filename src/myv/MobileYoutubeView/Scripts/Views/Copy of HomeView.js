@@ -14,10 +14,10 @@
             "click #btnRemoteMode": "remoteMode"
         },
         viewMode: function () {
-            App.hub.server.requestScreens("views:show:selectScreenView");
+            App.vent.trigger("views:show:viewer");
         },
         remoteMode: function () {
-            App.hub.server.requestScreens("views:show:chooseScreenView");
+            App.vent.trigger("views:show:remoteController");
         }
     });
 
