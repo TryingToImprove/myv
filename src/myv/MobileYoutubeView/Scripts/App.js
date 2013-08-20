@@ -59,34 +59,30 @@
         App.vent.trigger.apply(App, args);
     });
 
-    App.vent.listenTo(App, "views:show:viewer", function (screen) {
+    App.vent.listenTo(App, "screen:start", function (screen) {
         App.state = STATES.VIEWER;
-
-        require(["Views/ViewerView"], function (ViewerView) {
-            console.log("test");
-            App.mainRegion.show(new ViewerView());
-        });
+        
     });
 
     App.vent.listenTo(App, "remoteController:choose", function (screenId) {
         App.hub.server.connectRemoteController(screenId);
     });
     
-    App.vent.listenTo(App, "screen:choose", function (screenId) {
-        App.hub.server.joinScreen(screenId);
-    });
+    App.Data = {};
 
-    App.vent.listenTo(App, "views:show:selectScreenView", function (screens) {
-        require(["Views/SelectScreenView", "Models/ScreenModel", "Collections/ScreenCollection"], function (SelectScreenView, ScreenModel, ScreenCollection) {
-            var screenModels = [],
-                screenCollection;
+    App.vent.listenTo(App, "screen:start", function (screens) {
+        require(["Models/ScreenModel", "Collections/ScreenCollection"], function(ScreenModel, ScreenCollection) {
+            var screenModels = [];
 
-            screens.forEach(function (currentScreen) {
+            screens.forEach(function(currentScreen) {
                 screenModels.push(new ScreenModel(currentScreen));
             });
 
-            screenCollection = new ScreenCollection(screenModels);
-            App.mainRegion.show(new SelectScreenView({ collection: screenCollection }));
+            App.Data.Screens = new ScreenCollection(screenModels);
+
+            require(["Modules/Screen/ScreenModule"], function(ScreenModule) {
+                App.module("Screen").start();
+            });
         });
     });
 

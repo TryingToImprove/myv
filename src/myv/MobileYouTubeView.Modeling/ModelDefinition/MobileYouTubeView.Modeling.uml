@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="e3046c75-359a-45b6-ae5c-e2d6387e9542"
+  name="MobileYouTubeView.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction
+        Id="61737ae4-edf1-43db-addf-cca332049c63"
+        name="RequestVideo"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <ownedCommentsInternal>
+          <comment
+            Id="44ef825f-63dd-4078-a47d-6b5cd512c2bb">
+            <body>Rerender the view</body>
+            <annotatedElements>
+              <behaviorExecutionSpecificationMoniker
+                Id="d6e30656-f13f-44fd-a132-e33cf735c810"
+                LastKnownName="BehaviorExecutionSpecification7"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </annotatedElements>
+          </comment>
+          <comment
+            Id="871fed48-8032-49a4-936b-30abb654dc62">
+            <body>Should be able to play the video now</body>
+            <annotatedElements>
+              <behaviorExecutionSpecificationMoniker
+                Id="94ce83cf-7018-45cb-a096-2d7fbe8e8826"
+                LastKnownName="BehaviorExecutionSpecification17"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="382b14ae-6290-4bf4-8406-036ef99350c6"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="77fd48d0-e61e-4a3d-8687-fab8064eb998"
+                LastKnownName="SignalR"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="9a5ec7b2-9079-49bd-8949-577d1cab3c95"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="5d79269c-106f-48d8-9b54-8f06da94ae06"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="8e0d8617-d5b5-4c0a-b542-3fa55f5c6bb0"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3b837ded-64c8-4912-a540-0a82dabd1ac6"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="5d79269c-106f-48d8-9b54-8f06da94ae06"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="3a4b42a4-ce1b-4240-86d7-92c79566c44e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="77fd48d0-e61e-4a3d-8687-fab8064eb998"
+                LastKnownName="SignalR"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="441de404-5fa2-4276-9e9b-24aa771095ba"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="044e2b87-a7a6-4636-aa50-cd1c4cded84c"
+                LastKnownName="Remote Controller"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8e0d8617-d5b5-4c0a-b542-3fa55f5c6bb0"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="77fd48d0-e61e-4a3d-8687-fab8064eb998"
+                LastKnownName="SignalR"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="b6e374f8-08f4-4c4b-9f18-12a0422daaa5"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="0d481f87-bb9a-441c-bc2e-90dbd10a95dd"
+                LastKnownName="App"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="8dd62a86-787d-44fb-914d-83e59a04a5aa"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="4b1301e9-72a2-4f07-b242-9e36affd0c8f"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="b1c8aad7-9e9b-482d-a9e7-6f50e35f9cb2"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="5c1698b6-9b4d-4835-be14-3d27bef26d42"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="4b1301e9-72a2-4f07-b242-9e36affd0c8f"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f7cda13f-d61e-4dbe-a819-f519d66c0f50"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0d481f87-bb9a-441c-bc2e-90dbd10a95dd"
+                LastKnownName="App"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3b837ded-64c8-4912-a540-0a82dabd1ac6"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="77fd48d0-e61e-4a3d-8687-fab8064eb998"
+                LastKnownName="SignalR"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b1c8aad7-9e9b-482d-a9e7-6f50e35f9cb2"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="0d481f87-bb9a-441c-bc2e-90dbd10a95dd"
+                LastKnownName="App"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="5512ae3e-4ee5-4211-a830-278339147580"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="92053525-ad9f-4a6a-ac9e-1a186f34b016"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="6df9c363-2ec3-49d3-b8b7-405b4b638c5f"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c4b075f3-091a-44b7-b4c8-e17e67d7b034"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="9589d975-756c-4b10-8860-7806ec2bfb33"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="6df9c363-2ec3-49d3-b8b7-405b4b638c5f"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="47a3fa55-8818-4414-8ffd-c7d0404868c4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="9a5ec7b2-9079-49bd-8949-577d1cab3c95"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="475f33ba-32d0-4621-8dbc-993a3cc2dab3"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="77fd48d0-e61e-4a3d-8687-fab8064eb998"
+                LastKnownName="SignalR"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5c1698b6-9b4d-4835-be14-3d27bef26d42"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="0d481f87-bb9a-441c-bc2e-90dbd10a95dd"
+                LastKnownName="App"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c4b075f3-091a-44b7-b4c8-e17e67d7b034"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="d6e30656-f13f-44fd-a132-e33cf735c810"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="b5559b6b-07e2-421e-bb53-7e9cd73db51e"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="888467ee-eb43-4674-abee-b2b2193545ce"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ca2ccb10-f5b9-487d-9872-2fa80e6aa747"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3d3d825e-6371-4892-b374-10ff2fe2c1e9"
+                LastKnownName="MessageOccurrenceSpecification35"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="888467ee-eb43-4674-abee-b2b2193545ce"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="65648ec9-fd9d-4590-97b5-1b0507be5561"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="8dd62a86-787d-44fb-914d-83e59a04a5aa"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="1b797a75-2608-423c-b19a-f41f60a7f843"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0d481f87-bb9a-441c-bc2e-90dbd10a95dd"
+                LastKnownName="App"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9589d975-756c-4b10-8860-7806ec2bfb33"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ca2ccb10-f5b9-487d-9872-2fa80e6aa747"
+            name="MessageOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="92053525-ad9f-4a6a-ac9e-1a186f34b016"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2cfede19-bb25-4430-bdf7-aef94227bcf8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="4b28b968-ea2e-4a51-993b-80874ae75f3d"
+            name="BehaviorExecutionSpecification13">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="94bfa2e5-76b8-4c17-a224-db963502aef8"
+                LastKnownName="Global Window"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="5d382ee4-a9c9-4e0b-a987-2ba6a86dd77a"
+                LastKnownName="ExecutionOccurrenceSpecification26"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="a8ef87ac-0668-4e64-80a8-4f9e0e55b52e"
+                LastKnownName="ExecutionOccurrenceSpecification25"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="13477916-751e-48b5-ba11-c726a263ab31"
+                LastKnownName="MessageOccurrenceSpecification36"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="afee370c-1a0b-461f-bf85-0e5ba9872f79"
+                LastKnownName="MessageOccurrenceSpecification41"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="a8ef87ac-0668-4e64-80a8-4f9e0e55b52e"
+            name="ExecutionOccurrenceSpecification25">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="194c1212-c6d2-4c74-ab83-c8b7002158e2"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="94bfa2e5-76b8-4c17-a224-db963502aef8"
+                LastKnownName="Global Window"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3d3d825e-6371-4892-b374-10ff2fe2c1e9"
+            name="MessageOccurrenceSpecification35">
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="13477916-751e-48b5-ba11-c726a263ab31"
+            name="MessageOccurrenceSpecification36">
+            <covered>
+              <lifelineMoniker
+                Id="94bfa2e5-76b8-4c17-a224-db963502aef8"
+                LastKnownName="Global Window"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="b5559b6b-07e2-421e-bb53-7e9cd73db51e"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="84dc33d6-3e9b-4b4a-838e-6ed71f4446ce"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="8a64c811-f7b0-4c85-b747-28c2a3b3ac5a"
+            name="BehaviorExecutionSpecification16">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="11b9af34-753d-4b66-9412-302c601a8c5f"
+                LastKnownName="ExecutionOccurrenceSpecification32"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="6ef8a425-8d79-4686-b1d5-d88e151e091c"
+                LastKnownName="ExecutionOccurrenceSpecification31"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="25d70738-3b74-45af-aaa4-115c22f0ecf1"
+                LastKnownName="MessageOccurrenceSpecification42"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="e30b686b-40da-4fd8-b642-5d2e3c64c7c4"
+                LastKnownName="MessageOccurrenceSpecification43"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="6ef8a425-8d79-4686-b1d5-d88e151e091c"
+            name="ExecutionOccurrenceSpecification31">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="12d0e75f-8907-461e-b14a-c36ebcb9c9ba"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="afee370c-1a0b-461f-bf85-0e5ba9872f79"
+            name="MessageOccurrenceSpecification41">
+            <covered>
+              <lifelineMoniker
+                Id="94bfa2e5-76b8-4c17-a224-db963502aef8"
+                LastKnownName="Global Window"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="25d70738-3b74-45af-aaa4-115c22f0ecf1"
+            name="MessageOccurrenceSpecification42">
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="5d382ee4-a9c9-4e0b-a987-2ba6a86dd77a"
+            name="ExecutionOccurrenceSpecification26">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="9ec682d3-ac9f-4a00-a621-7dc9f1fb1476"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="94bfa2e5-76b8-4c17-a224-db963502aef8"
+                LastKnownName="Global Window"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="94ce83cf-7018-45cb-a096-2d7fbe8e8826"
+            name="BehaviorExecutionSpecification17">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="f01ec475-b0bd-4076-a6c3-5e4d94966787"
+                LastKnownName="ExecutionOccurrenceSpecification34"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="cd07e704-1ef6-44ff-9ba8-70a3b30c6e79"
+                LastKnownName="ExecutionOccurrenceSpecification33"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="246a192d-6bf0-440e-a7aa-1d8ffcbd8170"
+                LastKnownName="MessageOccurrenceSpecification44"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="cd07e704-1ef6-44ff-9ba8-70a3b30c6e79"
+            name="ExecutionOccurrenceSpecification33">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="454ef06a-25c7-4102-b124-ecdfa2dd986e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e30b686b-40da-4fd8-b642-5d2e3c64c7c4"
+            name="MessageOccurrenceSpecification43">
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="246a192d-6bf0-440e-a7aa-1d8ffcbd8170"
+            name="MessageOccurrenceSpecification44">
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="11b9af34-753d-4b66-9412-302c601a8c5f"
+            name="ExecutionOccurrenceSpecification32">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d273eec4-97c2-47d9-8692-5bdb9d85859d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+                LastKnownName="ScreenController"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="f01ec475-b0bd-4076-a6c3-5e4d94966787"
+            name="ExecutionOccurrenceSpecification34">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d792fa25-08ba-4cd9-b5a0-c8b36f9ae04f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+                LastKnownName="ScreenView"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="044e2b87-a7a6-4636-aa50-cd1c4cded84c"
+            name="Remote Controller"
+            isActor="false"
+            lifelineDisplayName="Remote Controller">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="441de404-5fa2-4276-9e9b-24aa771095ba"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="77fd48d0-e61e-4a3d-8687-fab8064eb998"
+            name="SignalR"
+            isActor="false"
+            lifelineDisplayName="SignalR">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="5d79269c-106f-48d8-9b54-8f06da94ae06"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="9a5ec7b2-9079-49bd-8949-577d1cab3c95"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="0d481f87-bb9a-441c-bc2e-90dbd10a95dd"
+            name="App"
+            isActor="false"
+            lifelineDisplayName="App">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="4b1301e9-72a2-4f07-b242-9e36affd0c8f"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="8dd62a86-787d-44fb-914d-83e59a04a5aa"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="b2c290ee-0ed2-4913-826c-54b05bf793c0"
+            name="ScreenController"
+            isActor="false"
+            lifelineDisplayName="ScreenController">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="6df9c363-2ec3-49d3-b8b7-405b4b638c5f"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="92053525-ad9f-4a6a-ac9e-1a186f34b016"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="6ef8a425-8d79-4686-b1d5-d88e151e091c"
+                LastKnownName="ExecutionOccurrenceSpecification31"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="11b9af34-753d-4b66-9412-302c601a8c5f"
+                LastKnownName="ExecutionOccurrenceSpecification32"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="ea0c6b2d-6eff-4d33-bea0-a0d2667cb891"
+            name="ScreenView"
+            isActor="false"
+            lifelineDisplayName="ScreenView">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="888467ee-eb43-4674-abee-b2b2193545ce"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="b5559b6b-07e2-421e-bb53-7e9cd73db51e"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="cd07e704-1ef6-44ff-9ba8-70a3b30c6e79"
+                LastKnownName="ExecutionOccurrenceSpecification33"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f01ec475-b0bd-4076-a6c3-5e4d94966787"
+                LastKnownName="ExecutionOccurrenceSpecification34"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="94bfa2e5-76b8-4c17-a224-db963502aef8"
+            name="Global Window"
+            isActor="false"
+            lifelineDisplayName="Global Window">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="a8ef87ac-0668-4e64-80a8-4f9e0e55b52e"
+                LastKnownName="ExecutionOccurrenceSpecification25"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="5d382ee4-a9c9-4e0b-a987-2ba6a86dd77a"
+                LastKnownName="ExecutionOccurrenceSpecification26"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="ee2e60de-d7aa-4269-bcd3-b6fb0901753d"
+            name="hub.sendVideoRequest"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="441de404-5fa2-4276-9e9b-24aa771095ba"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8e0d8617-d5b5-4c0a-b542-3fa55f5c6bb0"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="6137f067-8790-48a4-8699-01faeeaa8056"
+            name="Publish(&quot;video:request&quot;)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3b837ded-64c8-4912-a540-0a82dabd1ac6"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b1c8aad7-9e9b-482d-a9e7-6f50e35f9cb2"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="cfa758ed-9060-44da-b137-b36d274db4ba"
+            name="&quot;video:change&quot;"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5c1698b6-9b4d-4835-be14-3d27bef26d42"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c4b075f3-091a-44b7-b4c8-e17e67d7b034"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="da7d6234-f7bc-40b2-9f2b-2136115a0c1f"
+            name="player.request(videoEntryModel)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9589d975-756c-4b10-8860-7806ec2bfb33"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ca2ccb10-f5b9-487d-9872-2fa80e6aa747"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="ec6876e0-4d6b-4a77-b44c-d4089c0b0e24"
+            name="onYouTubePlayerReady"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3d3d825e-6371-4892-b374-10ff2fe2c1e9"
+                LastKnownName="MessageOccurrenceSpecification35"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="13477916-751e-48b5-ba11-c726a263ab31"
+                LastKnownName="MessageOccurrenceSpecification36"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d787462d-106d-4a91-b720-776fe59e6844"
+            name="&quot;video:ready&quot;"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="afee370c-1a0b-461f-bf85-0e5ba9872f79"
+                LastKnownName="MessageOccurrenceSpecification41"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="25d70738-3b74-45af-aaa4-115c22f0ecf1"
+                LastKnownName="MessageOccurrenceSpecification42"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="495e76f0-530e-4641-a778-e334cb97b4c8"
+            name="player.loadVideoById"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e30b686b-40da-4fd8-b642-5d2e3c64c7c4"
+                LastKnownName="MessageOccurrenceSpecification43"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="246a192d-6bf0-440e-a7aa-1d8ffcbd8170"
+                LastKnownName="MessageOccurrenceSpecification44"
+                LastKnownLocation="MobileYouTubeView.Modeling.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="3a4b42a4-ce1b-4240-86d7-92c79566c44e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="475f33ba-32d0-4621-8dbc-993a3cc2dab3"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f7cda13f-d61e-4dbe-a819-f519d66c0f50"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="1b797a75-2608-423c-b19a-f41f60a7f843"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="47a3fa55-8818-4414-8ffd-c7d0404868c4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2cfede19-bb25-4430-bdf7-aef94227bcf8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="65648ec9-fd9d-4590-97b5-1b0507be5561"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="84dc33d6-3e9b-4b4a-838e-6ed71f4446ce"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="194c1212-c6d2-4c74-ab83-c8b7002158e2"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="9ec682d3-ac9f-4a00-a621-7dc9f1fb1476"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="12d0e75f-8907-461e-b14a-c36ebcb9c9ba"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d273eec4-97c2-47d9-8692-5bdb9d85859d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="454ef06a-25c7-4102-b124-ecdfa2dd986e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d792fa25-08ba-4cd9-b5a0-c8b36f9ae04f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

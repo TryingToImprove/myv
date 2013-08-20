@@ -14,7 +14,7 @@
             "click #btnRemoteMode": "remoteMode"
         },
         viewMode: function () {
-            App.hub.server.requestScreens("views:show:selectScreenView");
+            App.hub.server.requestScreens("screen:start");
         },
         remoteMode: function () {
             App.hub.server.requestScreens("views:show:chooseScreenView");

@@ -94,6 +94,7 @@ namespace MobileYoutubeView.Hubs
 
             //Notify the screen group
             Clients.Group(remoteController.Screen.GroupName).Publish("video:request", video);
+            Clients.Group(remoteController.ScreenGroupName).Publish("video:request", video);
         }
 
         public void SendPauseRequest(RemoteController remoteController)
