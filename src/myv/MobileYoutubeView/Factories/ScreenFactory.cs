@@ -13,7 +13,8 @@ namespace MobileYoutubeView.Factories
             var screen = new Screen()
                 {
                     Id = Guid.NewGuid(),
-                    Started = DateTime.Now
+                    Started = DateTime.Now,
+                    Name = name
                 };
 
             screen.Connected.Add(connectionId);

@@ -1,7 +1,7 @@
 ﻿html, body {
     margin: 0;
     height: 100%;
-    font-family: tahoma;
+    font-family: "Segoe UI";
     font-size: 1em;
     background: #fcfcfc; /* Old browsers */
     background: -moz-linear-gradient(top, #fcfcfc 1%, #ededed 100%); /* FF3.6+ */
@@ -39,6 +39,104 @@ form {
         margin-bottom: 20px;
     }
 }
+.content-view-item{
+    padding:20px;
+}
+
+
+.choosescreen-view{
+
+    h1{
+        font-size:16px;
+    }
+
+    .screen-option{
+        display: block;
+        text-decoration: none;
+        color: #000;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 19px;
+        background: #FFF;
+
+        &:hover{
+            background:#f1f1f1
+        }
+    }
+}
+
+h1{
+    font-size:22px;
+    margin:0;
+}
+
+
+.horizontal-form{
+
+    .control-group{
+        
+
+        label{
+            display:block;
+            font-weight:bold;
+            margin-bottom:5px
+        }
+
+        input[type='text'], input[type='password']{
+            padding:6px;
+            width:100%;
+        }
+    }
+
+}
+
+.form-actions{
+    overflow:hidden;
+    margin-top:10px;
+
+    .back{
+        float:left;
+    }
+
+    .btn{
+        float:right;
+    }
+}
+
+.full-width{
+    width:100%;
+}
+
+a{
+    color:#22b43f;
+    text-decoration:none;
+
+    &:hover{
+        text-decoration:underline;
+    }
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #22b43f;
+    border: 0;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    cursor:pointer;
+
+    &:hover {
+        background-color:#49DE67;
+    }
+}
+
+
 
 .viewer {
     height: 100%;

@@ -31,11 +31,8 @@ namespace MobileYoutubeView.Hubs
             _screenFactory = new ScreenFactory(); ;
         }
 
-        public void ConnectScreen()
+        public void ConnectScreen(string name)
         {
-            //TODO: Find a better naming convention
-            string name = System.Net.Dns.GetHostName();
-
             //Create the screen
             Screen screen = _screenFactory.CreateNew(Context.ConnectionId, name);
 
@@ -47,6 +44,9 @@ namespace MobileYoutubeView.Hubs
 
             //Call the viewer event
             Clients.Caller.Publish("views:show:viewer", screen);
+
+            //Cal the remotecontrollers
+            Clients.All.Publish("screen:joined", screen);
         }
 
         public void JoinScreen(string screenId)
@@ -61,10 +61,16 @@ namespace MobileYoutubeView.Hubs
             Clients.Caller.Publish("views:show:viewer", screen);
         }
 
-        public void RequestScreens(string eventToTrigger)
+        public void GetOnlineScreens()
         {
             //Send the connected screens to the caller
-            Clients.Caller.Publish(eventToTrigger, ConnectedScreens);
+            Clients.Caller.Publish("data:screens:all:loaded", ConnectedScreens);
+        }
+
+        public void RequestScreens()
+        {
+            //Send the connected screens to the caller
+            Clients.Caller.Publish("data:screens:all:loaded", ConnectedScreens);
         }
 
         public void ConnectRemoteController(string screenId)

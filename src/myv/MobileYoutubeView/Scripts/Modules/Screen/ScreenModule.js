@@ -5,12 +5,10 @@
 
     //Define the screen module
     App.module("Screen", function (Screen) {
-        
         Screen.addInitializer(function () {
             require(["Views/SelectScreenView"], function (SelectScreenView) {
-                App.mainRegion.show(new SelectScreenView({
-                    collection: App.Data.Screens
-                }));
+                var controller = new SelectScreenView({ area: App.mainRegion });
+                controller.showSelectScreen();
             });
         });
 

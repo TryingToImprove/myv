@@ -11,6 +11,7 @@
             bottom: "#remoteController-bottom-area"
         },
         onShow: function () {
+           
             this.search.show(new SearchView());
             this.content.show(new CollectionView());
             this.bottom.show(new BottomBarView());

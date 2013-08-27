@@ -175,7 +175,9 @@
     <Content Include="Scripts\Models\NotificationModel.js" />
     <Content Include="Scripts\Models\VideoEntryModel.js" />
     <Content Include="Scripts\Modules\Screen\Controllers\NotificationController.js" />
+    <Content Include="Scripts\Modules\Screen\Controllers\ScreenController.js" />
     <Content Include="Scripts\Modules\Screen\ScreenModule.js" />
+    <Content Include="Scripts\Repository\ScreenRepository.js" />
     <Content Include="Scripts\Vendor\jquery.signalR-1.0.1.js" />
     <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\Startup.js" />
@@ -206,9 +208,13 @@
     </Content>
     <Content Include="Templates\BottomBar-Playing.html" />
     <Content Include="Templates\BottomBar.html" />
-    <Content Include="Templates\ChooseScreenCollectionView.html" />
-    <Content Include="Templates\ChooseScreenItemView.html" />
-    <Content Include="Templates\SelectScreenCollectionView.html" />
+    <Content Include="Templates\ChooseScreen-ItemView.html" />
+    <Content Include="Templates\ChooseScreen-CollectionView.html" />
+    <Content Include="Templates\SelectScreen-CreateScreenView.html" />
+    <Content Include="Templates\SelectScreen-EmptyScreenView.html" />
+    <Content Include="Templates\SelectScreen-ItemView.html" />
+    <Content Include="Templates\SelectScreen-Layout.html" />
+    <Content Include="Templates\SelectScreen-CollectionView.html" />
     <Content Include="Templates\ViewerLayout.html" />
     <Content Include="Templates\NotificationView.html" />
     <Content Include="Templates\RemoteControllerView-Loading.html" />
