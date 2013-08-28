@@ -20,7 +20,7 @@
     });
 
     //Define a function which will be used whenever there is need for a modal to be shown
-    App.displayModal = function(view) {
+    App.displayModal = function (view) {
         this.modal.show(view);
     };
 
@@ -76,14 +76,14 @@
     App.Data = {};
 
     App.vent.listenTo(App, "screen:start", function (screens) {
-        require(["Modules/Screen/ScreenModule"], function (ScreenModule) {
+        require(["Modules/Screen/ScreenModule", "Repository/ScreenRepository"], function (ScreenModule, ScreenRepository) {
             App.module("Screen").stop();
             App.module("Screen").start();
         });
     });
 
     App.vent.listenTo(App, "views:show:chooseScreenView", function (screens) {
-        require(["Views/ChooseScreenView"], function (ChooseScreenView) {
+            require(["Views/ChooseScreenView", "Repository/ScreenRepository"], function (ChooseScreenView, ScreenRepository) {
             App.mainRegion.show(new ChooseScreenView());
         });
     });
@@ -97,10 +97,8 @@
     });
 
     App.addInitializer(function () {
-        require(["Repository/ScreenRepository"], function(ScreenRepository) {
-            App.trigger("views:show:home");
-        });
-    });    
+        App.trigger("views:show:home");
+    });
 
     App.addInitializer(function () {
         //We want the app to have 100 volume from init
