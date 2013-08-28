@@ -145,7 +145,11 @@ namespace MobileYoutubeView.Hubs
 
                     //Notify the clients that the screen have been removed
                     Clients.All.Publish("data:screens:removed", screen);
+                    Clients.Group(screen.RemoteControllersGroupName).Publish("current:screen:removed", screen);
                 }
+
+                //Notify the remote controllers that the screen have been disconnected (usefull for displaing number of active screens)
+                Clients.Group(screen.RemoteControllersGroupName).Publish("current:screen:disconnected", screen);
             }
 
             return null;

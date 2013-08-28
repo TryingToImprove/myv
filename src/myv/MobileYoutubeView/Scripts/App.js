@@ -1,4 +1,4 @@
-﻿define(["$", "underscore", "backbone", "marionette", "Handlebars"], function ($, _, Backbone, Marionette, Handlebars) {
+﻿define(["$", "underscore", "backbone", "marionette", "Handlebars", "Views/ModalRegion"], function ($, _, Backbone, Marionette, Handlebars, ModalRegion) {
 
     Backbone.Marionette.TemplateCache.prototype.compileTemplate = function (rawTemplate) {
         return Handlebars.compile(rawTemplate);
@@ -15,8 +15,13 @@
     App.isPlaying = true;
 
     App.addRegions({
+        modal: ModalRegion,
         mainRegion: "#main-content"
     });
+
+    App.displayModal = function (view) {
+        this.modal.show(view);
+    };
 
     App.vent.listenTo(App, "views:show:home", function () {
         require(["Views/HomeView"], function (HomeView) {
@@ -91,11 +96,11 @@
     });
 
     App.addInitializer(function () {
-        require(["Repository/ScreenRepository"], function(ScreenRepository) {
+        require(["Repository/ScreenRepository"], function (ScreenRepository) {
             App.trigger("views:show:home");
         });
     });
-    
+
     //Marionette.Region.prototype.open = function (view) {
     //    this.$el.hide();
     //    this.$el.html(view.el);

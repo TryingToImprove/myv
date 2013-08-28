@@ -20,6 +20,7 @@ namespace MobileYoutubeView.Models
         public List<string> Connected { get; set; }
 
         public string GroupName { get { return "Screen-" + Id.ToString(); } }
+        public string RemoteControllersGroupName { get { return "RemoteController-" + Id.ToString(); } }
 
         public void AddRemoteController(RemoteController remoteController)
         {

@@ -1,4 +1,10 @@
-﻿html, body {
+﻿* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     height: 100%;
     font-family: "Segoe UI";
@@ -39,18 +45,19 @@ form {
         margin-bottom: 20px;
     }
 }
-.content-view-item{
-    padding:20px;
+
+.content-view-item {
+    padding: 20px;
 }
 
 
-.choosescreen-view{
+.choosescreen-view {
 
-    h1{
-        font-size:16px;
+    h1 {
+        font-size: 16px;
     }
 
-    .screen-option{
+    .screen-option {
         display: block;
         text-decoration: none;
         color: #000;
@@ -60,60 +67,59 @@ form {
         font-size: 19px;
         background: #FFF;
 
-        &:hover{
-            background:#f1f1f1
+        &:hover {
+            background: #f1f1f1;
         }
     }
 }
 
-h1{
-    font-size:22px;
-    margin:0;
+h1 {
+    font-size: 22px;
+    margin: 0;
 }
 
 
-.horizontal-form{
+.horizontal-form {
 
-    .control-group{
-        
+    .control-group {
 
-        label{
-            display:block;
-            font-weight:bold;
-            margin-bottom:5px
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        input[type='text'], input[type='password']{
-            padding:6px;
-            width:100%;
+        input[type='text'], input[type='password'] {
+            padding: 6px;
+            width: 100%;
         }
     }
-
 }
 
-.form-actions{
-    overflow:hidden;
-    margin-top:10px;
+.form-actions {
+    overflow: hidden;
+    margin-top: 10px;
 
-    .back{
-        float:left;
+    .back {
+        float: left;
     }
 
-    .btn{
-        float:right;
+    .btn {
+        float: right;
     }
 }
 
-.full-width{
-    width:100%;
+.full-width {
+    width: 100%;
 }
 
-a{
-    color:#22b43f;
-    text-decoration:none;
+a {
+    color: #22b43f;
+    text-decoration: none;
 
-    &:hover{
-        text-decoration:underline;
+    &:hover {
+        text-decoration: underline;
     }
 }
 
@@ -129,10 +135,10 @@ a{
     font-weight: bold;
     border-radius: 7px;
     margin-bottom: 20px;
-    cursor:pointer;
+    cursor: pointer;
 
     &:hover {
-        background-color:#49DE67;
+        background-color: #49DE67;
     }
 }
 
@@ -168,9 +174,9 @@ a{
     }
 
     .video-entries {
-        background-color:#FFF;
-        padding:10px;
-        padding-bottom:20px;
+        background-color: #FFF;
+        padding: 10px;
+        padding-bottom: 20px;
 
         section {
             overflow: hidden;
@@ -186,7 +192,7 @@ a{
                 width: 67%;
 
                 h1 {
-                    margin:0;
+                    margin: 0;
                     font-size: 16px;
                 }
 
@@ -236,13 +242,13 @@ a{
                 font-size: 17px;
                 margin: 0;
                 line-height: 21px;
-                margin-bottom:6px;
+                margin-bottom: 6px;
             }
 
             .about {
                 float: left;
                 margin-left: 15px;
-                width:calc(100% - 63);
+                width: calc(100% - 63);
             }
 
             .playPause-btn {
@@ -259,20 +265,20 @@ a{
             .paused {
                 background-image: url("../Images/play-btn.png");
             }
-            
-            .volume-up{
-                display:inline-block;
-                background-image:url("/images/volume-up.png");
-                width:24px;
-                height:24px;
-                margin-left:8px;
+
+            .volume-up {
+                display: inline-block;
+                background-image: url("/images/volume-up.png");
+                width: 24px;
+                height: 24px;
+                margin-left: 8px;
             }
 
-            .volume-down{
-                display:inline-block;
-                background-image:url("/images/volume-down.png");
-                width:24px;
-                height:24px;
+            .volume-down {
+                display: inline-block;
+                background-image: url("/images/volume-down.png");
+                width: 24px;
+                height: 24px;
             }
         }
     }
@@ -451,14 +457,35 @@ a{
 }
 
 
-#notification .notification{
+#notification .notification {
+    position: absolute;
+    z-index: 999;
+    width: 200px;
+    background: #7A7A7A;
+    bottom: 5%;
+    right: 5%;
+    padding: 10px;
+    display: none;
+    color: #FFF;
+}
+
+#modal {
+    left:15px;
+    right:15px;
+    position: fixed;
+    z-index:99;
+    margin-top: 10px;
+    display: none;
+    margin: 15px;
+    padding: 20px;
+    background: #fff;
+    -webkit-box-shadow:  -1px 2px 10px #CCC;
+    box-shadow:  -1px 2px 10px #CCC;
+}
+
+#disabler{
     position:absolute;
-    z-index:999;
-    width:200px;
-    background:#7A7A7A;
-    bottom:5%;
-    right:5%;
-    padding:10px;
-    display:none;
-    color:#FFF;
+    z-index:98;
+    width:100%;
+    height:100%;
 }

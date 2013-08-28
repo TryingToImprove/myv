@@ -135,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adaptor\NamingAdaptor.cs" />
     <Compile Include="Api\YouTubeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Dal\YouTubeRepository.cs" />
@@ -196,6 +197,8 @@
     <Content Include="Scripts\Vendor\Zepto.js" />
     <Content Include="Scripts\Views\BottomBarView.js" />
     <Content Include="Scripts\Views\ChooseScreenView.js" />
+    <Content Include="Scripts\Views\DisconnectedView.js" />
+    <Content Include="Scripts\Views\ModalRegion.js" />
     <Content Include="Scripts\Views\SelectScreenView.js" />
     <Content Include="Scripts\Views\ViewerView.js" />
     <Content Include="Scripts\Views\HomeView.js" />
@@ -211,6 +214,7 @@
     <Content Include="Templates\ChooseScreen-ItemView.html" />
     <Content Include="Templates\ChooseScreen-CollectionView.html" />
     <Content Include="Templates\ChooseScreen-EmptyView.html" />
+    <Content Include="Templates\DisconnectedView.html" />
     <Content Include="Templates\SelectScreen-CreateScreenView.html" />
     <Content Include="Templates\SelectScreen-EmptyScreenView.html" />
     <Content Include="Templates\SelectScreen-ItemView.html" />

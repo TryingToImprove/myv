@@ -11,7 +11,6 @@
             bottom: "#remoteController-bottom-area"
         },
         onShow: function () {
-           
             this.search.show(new SearchView());
             this.content.show(new CollectionView());
             this.bottom.show(new BottomBarView());
@@ -25,6 +24,12 @@
                 this.content.show(new CollectionView({
                     collection: collection
                 }));
+            });
+
+            this.listenTo(App, "current:screen:disconnected", function (screen) {
+                require(["Views/DisconnectedView"], function(DisconnectedView) {
+                    App.displayModal(new DisconnectedView());
+                });
             });
         }
     });
