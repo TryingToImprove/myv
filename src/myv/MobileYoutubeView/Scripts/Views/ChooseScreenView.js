@@ -1,4 +1,4 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/ChooseScreen-CollectionView.html", "text!Templates/ChooseScreen-ItemView.html"], function ($, _, Backbone, Marionette, CollectionTemplate, ItemTemplate) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!Templates/ChooseScreen-CollectionView.html", "text!Templates/ChooseScreen-ItemView.html", "text!Templates/ChooseScreen-EmptyView.html"], function ($, _, Backbone, Marionette, CollectionTemplate, ItemTemplate, EmptyScreenTemplate) {
     var App = require("App");
 
     var ItemView = Backbone.Marionette.ItemView.extend({
@@ -18,10 +18,15 @@
         }
     });
 
+    var EmptyScreenView = Backbone.Marionette.ItemView.extend({
+        template: EmptyScreenTemplate
+    });
+
     var CollectionView = Backbone.Marionette.CompositeView.extend({
         events: {
             "click a.back": "toHomeScreen"
         },
+        emptyView: EmptyScreenView,
         template: CollectionTemplate,
         tagName: "div",
         className: "choosescreen-view content-view-item ",

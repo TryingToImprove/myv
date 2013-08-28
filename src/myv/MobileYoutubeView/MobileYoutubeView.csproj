@@ -210,6 +210,7 @@
     <Content Include="Templates\BottomBar.html" />
     <Content Include="Templates\ChooseScreen-ItemView.html" />
     <Content Include="Templates\ChooseScreen-CollectionView.html" />
+    <Content Include="Templates\ChooseScreen-EmptyView.html" />
     <Content Include="Templates\SelectScreen-CreateScreenView.html" />
     <Content Include="Templates\SelectScreen-EmptyScreenView.html" />
     <Content Include="Templates\SelectScreen-ItemView.html" />

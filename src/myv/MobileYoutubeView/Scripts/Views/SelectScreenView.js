@@ -35,7 +35,10 @@
         itemViewContainer: "#items",
         emptyView: EmptyScreenView,
         cleanUp: function () {
-            this.stopListening(this.collection, "add", this.render);
+            this.stopListening(this.collection, {
+                "add": this.itemAdded,
+                "remove": this.itemAdded
+            });
         },
         initialize: function (options) {
             this.controller = options.controller;
@@ -55,7 +58,10 @@
                 this.collection = screenCollection;
 
                 //Add eventlisteners to the view for the collection
-                this.listenTo(this.collection, "add", this.itemAdded);
+                this.listenTo(this.collection, {
+                    "add": this.itemAdded,
+                    "remove": this.itemAdded
+                });
 
                 if (forceRender) {
                     this.render();
