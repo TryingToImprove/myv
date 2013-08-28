@@ -142,9 +142,10 @@ namespace MobileYoutubeView.Hubs
                 {
                     //Remove
                     ConnectedScreens.Remove(screen);
-                }
 
-                Clients.All.Publish("data:screens:removed", screen);
+                    //Notify the clients that the screen have been removed
+                    Clients.All.Publish("data:screens:removed", screen);
+                }
             }
 
             return null;
