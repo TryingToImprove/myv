@@ -19,6 +19,7 @@
         mainRegion: "#main-content"
     });
 
+    //Define a function which will be used whenever there is need for a modal to be shown
     App.displayModal = function(view) {
         this.modal.show(view);
     };
@@ -99,13 +100,7 @@
         require(["Repository/ScreenRepository"], function(ScreenRepository) {
             App.trigger("views:show:home");
         });
-    });
-    
-    //Marionette.Region.prototype.open = function (view) {
-    //    this.$el.hide();
-    //    this.$el.html(view.el);
-    //    this.$el.slideDown()
-    //}
+    });    
 
     App.addInitializer(function () {
         //We want the app to have 100 volume from init
