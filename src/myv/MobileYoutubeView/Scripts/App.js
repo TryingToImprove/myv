@@ -19,7 +19,7 @@
         mainRegion: "#main-content"
     });
 
-    App.displayModal = function (view) {
+    App.displayModal = function(view) {
         this.modal.show(view);
     };
 
@@ -96,11 +96,11 @@
     });
 
     App.addInitializer(function () {
-        require(["Repository/ScreenRepository"], function (ScreenRepository) {
+        require(["Repository/ScreenRepository"], function(ScreenRepository) {
             App.trigger("views:show:home");
         });
     });
-
+    
     //Marionette.Region.prototype.open = function (view) {
     //    this.$el.hide();
     //    this.$el.html(view.el);

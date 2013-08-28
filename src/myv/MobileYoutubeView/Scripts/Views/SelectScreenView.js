@@ -95,6 +95,9 @@
         initialize: function(options) {
             this.controller = options.controller;
         },
+        onShow: function() {
+            $("input:first", this.$el).focus();
+        },
         createScreen: function(e) {
             require(["Models/ScreenModel"], $.proxy(function(ScreenModel) {
                 var screen = new ScreenModel({
