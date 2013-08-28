@@ -33,7 +33,10 @@
         itemViewContainer: "#items",
         itemView: ItemView,
         cleanUp: function () {
-            this.stopListening(this.collection, "add", this.render);
+            this.stopListening(this.collection, {
+                "add": this.render,
+                "remove": this.render
+            });
         },
         initialize: function () {
             this.listenTo(App, "data:screens:currentConnected", function () {
@@ -52,7 +55,10 @@
                 this.collection = screenCollection;
 
                 //Add eventlisteners to the view for the collection
-                this.listenTo(this.collection, "add", this.render);
+                this.listenTo(this.collection, {
+                    "add": this.render,
+                    "remove": this.render
+                });
 
                 if (forceRender) {
                     this.render();

@@ -36,8 +36,8 @@
         emptyView: EmptyScreenView,
         cleanUp: function () {
             this.stopListening(this.collection, {
-                "add": this.itemAdded,
-                "remove": this.itemAdded
+                "add": this.render,
+                "remove": this.render
             });
         },
         initialize: function (options) {
@@ -59,17 +59,14 @@
 
                 //Add eventlisteners to the view for the collection
                 this.listenTo(this.collection, {
-                    "add": this.itemAdded,
-                    "remove": this.itemAdded
+                    "add": this.render,
+                    "remove": this.render
                 });
 
                 if (forceRender) {
                     this.render();
                 }
             });
-        },
-        itemAdded: function() {
-            this.render();
         },
         onShow: function () {
             App.trigger("data:screens:all:load");
