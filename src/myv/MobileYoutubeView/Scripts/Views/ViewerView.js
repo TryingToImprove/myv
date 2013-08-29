@@ -33,6 +33,18 @@
         embedSWF: function () {
             //Embed the player
             this.player.embed();
+        },
+        getPlayerState: function() {
+            return this.player.getPlayerState();
+        },
+        setVolume: function (volume) {
+            this.player.setVolume(volume);
+        },
+        play: function () {
+            this.player.play();
+        },
+        pause: function () {
+            this.player.pause();
         }
     });
 

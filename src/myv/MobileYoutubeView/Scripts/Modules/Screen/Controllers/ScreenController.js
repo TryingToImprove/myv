@@ -47,12 +47,12 @@
             },
             play: function () {
                 if (this.player.getPlayerState() !== 1) {
-                    this.player.playVideo();
+                    this.player.play();
                 }
             },
             pause: function () {
                 if (this.player.getPlayerState() === 1) {
-                    this.player.pauseVideo();
+                    this.player.pause();
                 }
             },
             start: function (videoEntryModel) {

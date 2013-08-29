@@ -1,6 +1,6 @@
 ﻿define(["underscore", "backbone"], function (_, Backbone) {
     "use strict";
-    
+
     var playerId = "myytplayer";
 
     var Model = Backbone.Model.extend({
@@ -15,11 +15,23 @@
             },
             playerElement: null
         },
-        getPlayerElement: function() {
+        getPlayerElement: function () {
             return document.getElementById(playerId);
         },
-        load: function(id) {
+        load: function (id) {
             this.getPlayerElement().loadVideoById(id, 0, 0);
+        },
+        setVolume: function (volume) {
+            this.getPlayerElement().setVolume(volume);
+        },
+        play: function () {
+            this.getPlayerElement().playVideo();
+        },
+        pause: function () {
+            this.getPlayerElement().pauseVideo();
+        },
+        getPlayerState: function () {
+            return this.getPlayerElement().getPlayerState();
         },
         embed: function () {
             var url = this.get("url"),
@@ -30,6 +42,6 @@
             swfobject.embedSWF(url, "ytapiplayer", "100%", "100%", "8", null, null, params, atts);
         }
     });
-    
+
     return Model;
 });
