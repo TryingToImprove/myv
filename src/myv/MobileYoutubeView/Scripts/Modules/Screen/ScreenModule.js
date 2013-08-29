@@ -1,4 +1,4 @@
-﻿require(["$", "underscore", "backbone", "marionette", "Modules/Screen/Controllers/NotificationController", "Modules/Screen/Controllers/ScreenController", "text!Templates/ViewerLayout.html"], function ($, _, Backbone, Marionette, NotificationController, ScreenController, LayoutTemplate) {
+﻿require(["$", "underscore", "backbone", "marionette", "Repository/ScreenRepository", "Modules/Screen/Controllers/NotificationController", "Modules/Screen/Controllers/ScreenController", "text!Templates/ViewerLayout.html"], function ($, _, Backbone, Marionette, ScreenRepository, NotificationController, ScreenController, LayoutTemplate) {
 
     //Load the App
     var App = require("App");

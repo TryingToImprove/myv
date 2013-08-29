@@ -8,7 +8,7 @@
         VIEWER: 0,
         REMOTE_CONTROLLER: 1
     };
-
+    
     // set up the app instance
     var App = new Marionette.Application();
 
@@ -76,7 +76,7 @@
     App.Data = {};
 
     App.vent.listenTo(App, "screen:start", function (screens) {
-        require(["Modules/Screen/ScreenModule", "Repository/ScreenRepository"], function (ScreenModule, ScreenRepository) {
+        require(["Modules/Screen/ScreenModule"], function (ScreenModule) {
             App.module("Screen").stop();
             App.module("Screen").start();
         });
