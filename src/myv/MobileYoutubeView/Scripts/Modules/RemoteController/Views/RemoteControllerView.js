@@ -53,25 +53,49 @@
         tagName: "form",
         events: {
             "keypress input[name='txtSearch']": "autoComplete",
+            "click #remoteController-search-autoComplete": "searchAuto",
             "submit": "search"
         },
         ui: {
-            txtSearch: "input[name='txtSearch']"
+            txtSearch: "input[name='txtSearch']",
+            autoComplete: ".dropdown"
         },
         searchTimeoutFunc: null,
+        searchAuto: function (e) {
+            var $target = $(e.target),
+                value = $target.html();
+
+            this.ui.txtSearch.val(value);
+            this.ui.autoComplete.hide();
+            this.search();
+        },
         autoComplete: function () {
 
             if (this.searchTimeoutFunc)
                 clearTimeout(this.searchTimeoutFunc);
 
             this.searchTimeoutFunc = setTimeout($.proxy(function () {
+
                 $.ajax({
-                    url: "/Api/YouTube/GetSuggestions/?query=" + this.ui.txtSearch.val(),
+                    url: "/Api/YouTubeSuggestion?query=" + this.ui.txtSearch.val(),
                     dataType: "json"
                 })
-                .done(function (result) {
-                    alert(result);
-                });
+                .done($.proxy(function (result) {
+                    var $autoCompleteList = this.ui.autoComplete.find("ul").empty();
+                    console.log(result.length);
+                    //If there are no result, then we want to hide the autocomplete-dropdown and stop the executing
+                    if (result.length == 0) {
+                        this.ui.autoComplete.hide();
+                        return;
+                    }
+
+                    this.ui.autoComplete.show();
+                    
+                    result.forEach(function (item) {
+                        $("<li>" + item + "</li>").appendTo($autoCompleteList);
+                    });
+
+                }, this));
             }, this), 400);
 
         },

@@ -1,77 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace MobileYoutubeView.Models
 {
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    public partial class toplevel
+    [XmlType(AnonymousType = true)]
+    [XmlRoot(ElementName = "toplevel", IsNullable = false)]
+    public class YouTubeSuggestionList
     {
-
-        private toplevelCompleteSuggestion[] completeSuggestionField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("CompleteSuggestion")]
-        public toplevelCompleteSuggestion[] CompleteSuggestion
-        {
-            get
-            {
-                return this.completeSuggestionField;
-            }
-            set
-            {
-                this.completeSuggestionField = value;
-            }
-        }
+        [XmlElement("CompleteSuggestion")]
+        public CompleteSuggestion[] CompleteSuggestion { get; set; }
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class toplevelCompleteSuggestion
+    [XmlType(AnonymousType = true)]
+    public class CompleteSuggestion
     {
-
-        private toplevelCompleteSuggestionSuggestion suggestionField;
-
-        /// <remarks/>
-        public toplevelCompleteSuggestionSuggestion suggestion
-        {
-            get
-            {
-                return this.suggestionField;
-            }
-            set
-            {
-                this.suggestionField = value;
-            }
-        }
+        [XmlElement("suggestion")]
+        public Suggestion Suggestion { get; set; }
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class toplevelCompleteSuggestionSuggestion
+    [XmlType(AnonymousType = true)]
+    public class Suggestion
     {
-
-        private string dataField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string data
-        {
-            get
-            {
-                return this.dataField;
-            }
-            set
-            {
-                this.dataField = value;
-            }
-        }
+        [XmlAttribute("data")]
+        public string Data { get; set; }
     }
-
-
 }

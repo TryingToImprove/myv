@@ -136,7 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adaptor\NamingAdaptor.cs" />
-    <Compile Include="Api\YouTubeController.cs" />
+    <Compile Include="Api\YouTubeSuggestionController.cs" />
+    <Compile Include="Api\YouTubeVideoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Dal\YouTubeRepository.cs" />
     <Compile Include="Factories\ScreenFactory.cs" />

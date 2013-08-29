@@ -13,10 +13,6 @@ namespace MobileYoutubeView
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}"
             );
-            config.Routes.MapHttpRoute(
-                name: "DefaultActionApi",
-                routeTemplate: "api/{controller}/{action}"
-            );
         }
     }
 }
