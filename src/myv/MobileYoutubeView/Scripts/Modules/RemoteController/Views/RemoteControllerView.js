@@ -69,13 +69,28 @@
             this.ui.txtSearch.val(value);
             this.search();
         },
-        closeAutoComplete: function() {
-            this.ui.autoComplete.hide();
+        autoCompleteClosed: true,
+        closeAutoComplete: function (e) {
+            e = e || {};
+            
+            var $target = $(e.target),
+                closeFunc = $.proxy(function () {
+                    this.autoCompleteClosed = true;
+                    this.ui.autoComplete.hide();
+                }, this);
+            
+            if ($target.attr("name") == "txtSearch") {
+                setTimeout(closeFunc, 200);
+            } else {
+                closeFunc();
+            }
         },
         autoComplete: function () {
 
             if (this.searchTimeoutFunc)
                 clearTimeout(this.searchTimeoutFunc);
+
+            this.autoCompleteClosed = false;
 
             this.searchTimeoutFunc = setTimeout($.proxy(function () {
 
@@ -85,10 +100,15 @@
                 })
                 .done($.proxy(function (result) {
                     var $autoCompleteList = this.ui.autoComplete.find("ul").empty();
-                    console.log(result.length);
+
                     //If there are no result, then we want to hide the autocomplete-dropdown and stop the executing
                     if (result.length == 0) {
                         this.closeAutoComplete();
+                        return;
+                    }
+                    
+                    //If the user already have closed the autoComplete-dropdown then just stop
+                    if (this.autoCompleteClosed) {
                         return;
                     }
 
