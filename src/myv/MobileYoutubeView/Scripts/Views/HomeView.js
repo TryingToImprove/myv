@@ -18,7 +18,7 @@
             App.trigger("screen:start");
         },
         remoteMode: function () {
-            App.trigger("views:show:chooseScreenView");
+            App.trigger("remoteController:start");
         }
     });
 

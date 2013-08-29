@@ -82,7 +82,7 @@
         });
     });
 
-    App.vent.listenTo(App, "views:show:chooseScreenView", function (screens) {
+    App.vent.listenTo(App, "remoteController:start", function (screens) {
         require(["Modules/RemoteController/RemoteControllerModule"], function (RemoteControllerModule) {
             App.module("RemoteController").stop();
             App.module("RemoteController").start();
