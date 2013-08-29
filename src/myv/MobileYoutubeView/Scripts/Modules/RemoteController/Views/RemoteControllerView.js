@@ -52,7 +52,7 @@
         template: SearchTemplate,
         tagName: "form",
         events: {
-            "keypress input[name='txtSearch']": "autoComplete",
+            "keydown input[name='txtSearch']": "autoComplete",
             "click #remoteController-search-autoComplete": "searchAuto",
             "submit": "search"
         },
