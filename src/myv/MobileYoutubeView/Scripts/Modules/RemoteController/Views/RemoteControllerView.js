@@ -70,7 +70,6 @@
             this.search();
         },
         autoComplete: function () {
-            alert("test");
 
             if (this.searchTimeoutFunc)
                 clearTimeout(this.searchTimeoutFunc);
@@ -91,7 +90,7 @@
                     }
 
                     this.ui.autoComplete.show();
-                    
+
                     result.forEach(function (item) {
                         $("<li>" + item + "</li>").appendTo($autoCompleteList);
                     });
