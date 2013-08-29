@@ -52,7 +52,7 @@
         template: SearchTemplate,
         tagName: "form",
         events: {
-            "change input[name='txtSearch']": "autoComplete",
+            "keydown input[name='txtSearch']": "autoComplete",
             "click #remoteController-search-autoComplete": "searchAuto",
             "submit": "search"
         },
@@ -70,6 +70,7 @@
             this.search();
         },
         autoComplete: function () {
+            alert("test");
 
             if (this.searchTimeoutFunc)
                 clearTimeout(this.searchTimeoutFunc);
