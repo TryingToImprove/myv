@@ -14,7 +14,6 @@
             "click #btnRemoteMode": "remoteMode"
         },
         viewMode: function () {
-            //App.hub.server.connectScreen();
             App.trigger("screen:start");
         },
         remoteMode: function () {
