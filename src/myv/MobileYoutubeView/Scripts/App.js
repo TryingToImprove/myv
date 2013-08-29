@@ -24,6 +24,10 @@
         this.modal.show(view);
     };
 
+    App.closeModal = function () {
+        this.modal.close();
+    };
+
     App.vent.listenTo(App, "views:show:home", function () {
         require(["Views/HomeView"], function (HomeView) {
             App.mainRegion.show(new HomeView());

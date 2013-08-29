@@ -1,4 +1,4 @@
-﻿define(["$", "underscore", "backbone", "marionette", "text!RemoteController/Templates/RemoteControllerView.html", "text!RemoteController/Templates/RemoteControllerView-Item.html", "text!RemoteController/Templates/RemoteControllerView-Layout.html", "text!RemoteController/Templates/RemoteControllerView-Search.html", "text!RemoteController/Templates/RemoteControllerView-Loading.html", "Views/BottomBarView"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate, BottomBarView) {
+﻿define(["$", "underscore", "backbone", "marionette", "text!RemoteController/Templates/RemoteControllerView.html", "text!RemoteController/Templates/RemoteControllerView-Item.html", "text!RemoteController/Templates/RemoteControllerView-Layout.html", "text!RemoteController/Templates/RemoteControllerView-Search.html", "text!RemoteController/Templates/RemoteControllerView-Loading.html", "RemoteController/Views/BottomBarView"], function ($, _, Backbone, Marionette, Template, ItemViewTemplate, LayoutTemplate, SearchTemplate, LoadingTemplate, BottomBarView) {
     var App = require("App");
 
     var Layout = Backbone.Marionette.Layout.extend({
@@ -27,7 +27,7 @@
             });
 
             this.listenTo(App, "current:screen:disconnected", function (screen) {
-                require(["Views/DisconnectedView"], function (DisconnectedView) {
+                require(["RemoteController/Views/DisconnectedView"], function (DisconnectedView) {
                     App.displayModal(new DisconnectedView());
                 });
             });
