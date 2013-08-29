@@ -8,7 +8,7 @@
         VIEWER: 0,
         REMOTE_CONTROLLER: 1
     };
-    
+
     // set up the app instance
     var App = new Marionette.Application();
 
@@ -83,16 +83,9 @@
     });
 
     App.vent.listenTo(App, "views:show:chooseScreenView", function (screens) {
-            require(["Views/ChooseScreenView", "Repository/ScreenRepository"], function (ChooseScreenView, ScreenRepository) {
-            App.mainRegion.show(new ChooseScreenView());
-        });
-    });
-
-    App.vent.listenTo(App, "views:show:remoteController", function (remoteController, screen) {
-        require(["Views/RemoteControllerView", "Models/RemoteControllerModel"], function (RemoteControllerView, RemoteControllerModel) {
-            App.model = new RemoteControllerModel(remoteController);
-
-            App.mainRegion.show(new RemoteControllerView());
+        require(["Modules/RemoteController/RemoteControllerModule"], function (RemoteControllerModule) {
+            App.module("RemoteController").stop();
+            App.module("RemoteController").start();
         });
     });
 

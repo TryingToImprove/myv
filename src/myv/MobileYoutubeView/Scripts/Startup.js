@@ -36,7 +36,8 @@ require.config({
         $: "Vendor/jquery.mobile-1.2.0",
         SignalR: "Vendor/jquery.signalR-1.0.1",
         Templates: "../Templates",
-        text: "Vendor/requirejs-plugins/text"
+        text: "Vendor/requirejs-plugins/text",
+        RemoteController: "Modules/RemoteController/"
     }
 });
 
