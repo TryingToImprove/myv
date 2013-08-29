@@ -148,6 +148,7 @@
     <Compile Include="Models\RemoteController.cs" />
     <Compile Include="Models\Screen.cs" />
     <Compile Include="Models\VideoEntry.cs" />
+    <Compile Include="Models\YouTubeSuggestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,8 @@
     <Content Include="Scripts\Models\ScreenModel.js" />
     <Content Include="Scripts\Models\NotificationModel.js" />
     <Content Include="Scripts\Models\VideoEntryModel.js" />
+    <Content Include="Scripts\Modules\RemoteController\RemoteControllerModule.js" />
+    <Content Include="Scripts\Modules\RemoteController\Views\SelectScreenView.js" />
     <Content Include="Scripts\Modules\Screen\Controllers\NotificationController.js" />
     <Content Include="Scripts\Modules\Screen\Controllers\ScreenController.js" />
     <Content Include="Scripts\Modules\Screen\ScreenModule.js" />
@@ -195,14 +198,14 @@
     <Content Include="Scripts\Vendor\swfobject.js" />
     <Content Include="Scripts\Vendor\Underscore\underscore.js" />
     <Content Include="Scripts\Vendor\Zepto.js" />
-    <Content Include="Scripts\Views\BottomBarView.js" />
+    <Content Include="Scripts\Modules\RemoteController\Views\BottomBarView.js" />
     <Content Include="Scripts\Views\ChooseScreenView.js" />
-    <Content Include="Scripts\Views\DisconnectedView.js" />
+    <Content Include="Scripts\Modules\RemoteController\Views\DisconnectedView.js" />
     <Content Include="Scripts\Views\ModalRegion.js" />
     <Content Include="Scripts\Views\SelectScreenView.js" />
     <Content Include="Scripts\Views\ViewerView.js" />
     <Content Include="Scripts\Views\HomeView.js" />
-    <Content Include="Scripts\Views\RemoteControllerView.js" />
+    <Content Include="Scripts\Modules\RemoteController\Views\RemoteControllerView.js" />
     <Content Include="Stylesheets\Main.css">
       <DependentUpon>Main.less</DependentUpon>
     </Content>
@@ -211,10 +214,10 @@
     </Content>
     <Content Include="Templates\BottomBar-Playing.html" />
     <Content Include="Templates\BottomBar.html" />
-    <Content Include="Templates\ChooseScreen-ItemView.html" />
-    <Content Include="Templates\ChooseScreen-CollectionView.html" />
-    <Content Include="Templates\ChooseScreen-EmptyView.html" />
-    <Content Include="Templates\DisconnectedView.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\ChooseScreen-ItemView.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\ChooseScreen-CollectionView.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\ChooseScreen-EmptyView.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\DisconnectedView.html" />
     <Content Include="Templates\SelectScreen-CreateScreenView.html" />
     <Content Include="Templates\SelectScreen-EmptyScreenView.html" />
     <Content Include="Templates\SelectScreen-ItemView.html" />
@@ -222,12 +225,12 @@
     <Content Include="Templates\SelectScreen-CollectionView.html" />
     <Content Include="Templates\ViewerLayout.html" />
     <Content Include="Templates\NotificationView.html" />
-    <Content Include="Templates\RemoteControllerView-Loading.html" />
-    <Content Include="Templates\RemoteControllerView-Search.html" />
-    <Content Include="Templates\RemoteControllerView-Layout.html" />
-    <Content Include="Templates\RemoteControllerView-Item.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\RemoteControllerView-Loading.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\RemoteControllerView-Search.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\RemoteControllerView-Layout.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\RemoteControllerView-Item.html" />
     <Content Include="Templates\ViewerView.html" />
-    <Content Include="Templates\RemoteControllerView.html" />
+    <Content Include="Scripts\Modules\RemoteController\Templates\RemoteControllerView.html" />
     <Content Include="Templates\HomeView.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -52,10 +52,28 @@
         template: SearchTemplate,
         tagName: "form",
         events: {
+            "keypress input[name='txtSearch']": "autoComplete",
             "submit": "search"
         },
         ui: {
-            txtSearch: "#txtSearch"
+            txtSearch: "input[name='txtSearch']"
+        },
+        searchTimeoutFunc: null,
+        autoComplete: function () {
+
+            if (this.searchTimeoutFunc)
+                clearTimeout(this.searchTimeoutFunc);
+
+            this.searchTimeoutFunc = setTimeout($.proxy(function () {
+                $.ajax({
+                    url: "/Api/YouTube/GetSuggestions/?query=" + this.ui.txtSearch.val(),
+                    dataType: "json"
+                })
+                .done(function (result) {
+                    alert(result);
+                });
+            }, this), 400);
+
         },
         search: function (e) {
             var query = this.ui.txtSearch.val();
