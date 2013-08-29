@@ -53,6 +53,7 @@
         tagName: "form",
         events: {
             "keydown input[name='txtSearch']": "autoComplete",
+            "blur input[name='txtSearch']": "closeAutoComplete",
             "click #remoteController-search-autoComplete": "searchAuto",
             "submit": "search"
         },
@@ -66,8 +67,10 @@
                 value = $target.html();
 
             this.ui.txtSearch.val(value);
-            this.ui.autoComplete.hide();
             this.search();
+        },
+        closeAutoComplete: function() {
+            this.ui.autoComplete.hide();
         },
         autoComplete: function () {
 
@@ -85,7 +88,7 @@
                     console.log(result.length);
                     //If there are no result, then we want to hide the autocomplete-dropdown and stop the executing
                     if (result.length == 0) {
-                        this.ui.autoComplete.hide();
+                        this.closeAutoComplete();
                         return;
                     }
 
@@ -101,6 +104,9 @@
         },
         search: function (e) {
             var query = this.ui.txtSearch.val();
+
+            //Close the autoComplete dropdown
+            this.closeAutoComplete();
 
             //We want to display loading screen here! 
             App.trigger("state:loading");
