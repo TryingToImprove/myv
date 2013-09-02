@@ -11,8 +11,10 @@ namespace MobileYoutubeView.Models
         {
             RemoteControllers = new List<RemoteController>();
             Connected = new List<string>();
+            IsPlaying = false;
         }
 
+        public bool IsPlaying { get; set; }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime Started { get; set; }

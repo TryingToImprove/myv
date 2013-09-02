@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 using Google.GData.Client;
 using Google.GData.YouTube;
 using Google.YouTube;
@@ -48,5 +53,34 @@ namespace MobileYoutubeView.Dal
 
             return videoFeed.Entries.Select(video => _videoEntryFactory.Build(video));
         }
+
+        public IEnumerable<string> GetSuggestions(string term)
+        {
+            const string baseUrl = "http://clients1.google.com/complete/search?hl=en&output=toolbar&q={0}";
+            string url = String.Format(baseUrl, HttpUtility.UrlEncode(term));
+
+            var request = WebRequest.Create(url);
+
+            using (var response = request.GetResponse())
+            {
+                using (var stream = response.GetResponseStream())
+                {
+                    if (stream == null) return null;
+
+                    using (var streamReader = new StreamReader(stream, Encoding.GetEncoding("ISO-8859-1")))
+                    // We need to use ISO-encoding otherwise it will not work
+                    using (var reader = XmlReader.Create(streamReader, new XmlReaderSettings
+                    {
+                        CheckCharacters = false
+                    }))
+                    {
+                        var serializer = new XmlSerializer(typeof(YouTubeSuggestionList));
+                        var results = (YouTubeSuggestionList)serializer.Deserialize(reader);
+
+                        return results.CompleteSuggestion.Select(x => x.Suggestion.Data);
+                    }
+                }
+            }
+        } 
     }
 }

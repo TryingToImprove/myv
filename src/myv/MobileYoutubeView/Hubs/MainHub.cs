@@ -20,15 +20,15 @@ namespace MobileYoutubeView.Hubs
         private readonly ScreenFactory _screenFactory;
 
         public MainHub()
-            : this(ObjectFactory.GetInstance<YouTubeRepository>())
+            : this(ObjectFactory.GetInstance<YouTubeRepository>(), ObjectFactory.GetInstance<ScreenFactory>())
         {
             //USe simple ObjectFactory as a Service Locator to start with! 
         }
 
-        public MainHub(YouTubeRepository youTubeRepository)
+        public MainHub(YouTubeRepository youTubeRepository, ScreenFactory screenFactory)
         {
             _youTubeRepository = youTubeRepository;
-            _screenFactory = new ScreenFactory(); ;
+            _screenFactory = screenFactory;
         }
 
         public void ConnectScreen(string name)
@@ -87,7 +87,7 @@ namespace MobileYoutubeView.Hubs
                 };
 
             //Add the remote controller to a signalR group
-            Groups.Add(Context.ConnectionId, remoteController.ScreenGroupName);
+            Groups.Add(Context.ConnectionId, remoteController.Screen.RemoteControllersGroupName);
 
             //Publish
             Clients.Caller.Publish("views:show:remoteController", remoteController, screen);
@@ -100,19 +100,29 @@ namespace MobileYoutubeView.Hubs
 
             //Notify the screen group
             Clients.Group(remoteController.Screen.GroupName).Publish("video:request", video);
-            Clients.Group(remoteController.ScreenGroupName).Publish("video:request", video);
+            Clients.Group(remoteController.Screen.RemoteControllersGroupName).Publish("video:request", video);
+        }
+
+        public void VideoStarted(string screenId)
+        {
+            var screen = ConnectedScreens.First(x => x.Id == new Guid(screenId));
+
+            Clients.Group(screen.RemoteControllersGroupName).Publish("screen:video:started", screen);
+            Clients.Group(screen.GroupName).Publish("screen:video:started", screen);
         }
 
         public void SendPauseRequest(RemoteController remoteController)
         {
             //Notify the screen group
             Clients.Group(remoteController.Screen.GroupName).Publish("video:pause");
+            Clients.Group(remoteController.Screen.RemoteControllersGroupName).Publish("video:pause");
         }
 
         public void SendPlayRequest(RemoteController remoteController)
         {
             //Notify the screen group
             Clients.Group(remoteController.Screen.GroupName).Publish("video:play");
+            Clients.Group(remoteController.Screen.RemoteControllersGroupName).Publish("video:play");
         }
 
         public void SendVolumeUp(RemoteController remoteController)

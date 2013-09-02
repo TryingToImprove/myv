@@ -18,8 +18,13 @@
             });
         });
 
+        this.listenTo(App, "screen:video:started", function(screen) {
+            console.log("video:started!!!!");
+        });
+
         // Listen to the show remotecontroller event to display the controller view
         this.listenTo(App, "views:show:remoteController", function (remoteController, screen) {
+            console.log(arguments);
             require(["RemoteController/Views/RemoteControllerView", "Models/RemoteControllerModel"], function (RemoteControllerView, RemoteControllerModel) {
                 
                 App.model = new RemoteControllerModel(remoteController);

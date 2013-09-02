@@ -33,13 +33,14 @@
             App.mainRegion.show(new HomeView());
         });
     });
-
+    
     App.listenTo(App, "video:play", function (video) {
         App.isPlaying = true;
     });
 
     App.listenTo(App, "video:pause", function (video) {
         App.isPlaying = false;
+        console.log("app.isPlaying", App.isPlaying)
     });
 
     App.listenTo(App, "volume:up", function () {

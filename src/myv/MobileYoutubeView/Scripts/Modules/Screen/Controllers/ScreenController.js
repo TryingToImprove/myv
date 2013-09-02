@@ -36,6 +36,8 @@
 
                 this.listenTo(App, "video:ready", $.proxy(function (player) {
                     this.start(this.model);
+
+                    App.hub.server.videoStarted(this.model.get("id"));
                 }, this));
 
                 this.listenTo(App, "video:pause", function () {

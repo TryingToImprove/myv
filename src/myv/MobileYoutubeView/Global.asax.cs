@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Microsoft.AspNet.SignalR;
 using MobileYoutubeView.Dal;
+using MobileYoutubeView.Factories;
 using StructureMap;
 
 namespace MobileYoutubeView
@@ -27,14 +28,16 @@ namespace MobileYoutubeView
 
             ObjectFactory.Container.Configure(factory =>
                 {
-                    // ReSharper disable ConvertToLambdaExpression
                     factory.For<YouTubeRepository>()
                            .HybridHttpOrThreadLocalScoped()
                            .Use(
                                x =>
                                new YouTubeRepository(ConfigurationManager.AppSettings["YouTube:AppName"],
                                                      ConfigurationManager.AppSettings["YouTube:DeveloperKey"]));
-                    // ReSharper restore ConvertToLambdaExpression
+
+                    factory.For<ScreenFactory>()
+                           .HybridHttpOrThreadLocalScoped()
+                           .Use(x => new ScreenFactory());
                 });
         }
     }

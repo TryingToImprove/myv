@@ -87,7 +87,7 @@
             App.hub.server.sendVolumeDown(App.model.toJSON());
         },
         playPause: function (e) {
-
+            
             if (App.isPlaying === null) {
                 console.log("waiting...");
                 e.preventDefault();

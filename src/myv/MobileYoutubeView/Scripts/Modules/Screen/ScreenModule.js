@@ -14,20 +14,24 @@
 
         // Used to display the video player
         Screen.listenTo(App, "views:show:viewer", function (screen) {
-            Screen.layout = new Layout();
-            
-            //Setup the notification controller
-            Screen.notificationController = new NotificationController({
-                mainRegion: Screen.layout.notification
+            require(["Models/ScreenModel"], function(ScreenModel) {
+                App.model = new ScreenModel(screen);
+
+                Screen.layout = new Layout();
+
+                //Setup the notification controller
+                Screen.notificationController = new NotificationController({
+                    mainRegion: Screen.layout.notification
+                });
+
+                //Setup the screen/viwer controller
+                Screen.screenController = new ScreenController({
+                    mainRegion: Screen.layout.screen
+                });
+
+                //Display the layout
+                App.mainRegion.show(Screen.layout);
             });
-            
-            //Setup the screen/viwer controller
-            Screen.screenController = new ScreenController({
-                mainRegion: Screen.layout.screen
-            });
-            
-            //Display the layout
-            App.mainRegion.show(Screen.layout);
         });
 
         // Used to make it possible to show the same screen on multiple monitors
